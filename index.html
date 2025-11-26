@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XX集团全国招聘地图</title>
+  <title>安佑集团全国招聘地图</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  
+  <!-- 引入本地地图数据 -->
+  <script src="china.js"></script>
   
   <script>
     tailwind.config = {
@@ -124,38 +125,170 @@
       }
     }
   </style>
-</head>
-<body class="bg-gray-50 min-h-screen font-sans text-gray-700">
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-top-16{top:-4rem}.left-1\/2{left:50%}.left-3{left:0.75rem}.top-0{top:0px}.top-3{top:0.75rem}.z-50{z-index:50}.z-\[1000\]{z-index:1000}.z-\[999\]{z-index:999}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-3{margin-top:0.75rem}.mt-2{margin-top:0.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-\[400px\]{height:400px}.h-3{height:0.75rem}.max-h-\[80vh\]{max-height:80vh}.max-h-\[90vh\]{max-height:90vh}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-full{width:100%}.w-3{width:0.75rem}.min-w-full{min-width:100%}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-gray-200 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(229 231 235 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-dashed{border-style:dashed}.border-admin{--tw-border-opacity:1;border-color:rgb(79 70 229 / var(--tw-border-opacity, 1))}.border-admin\/30{border-color:rgb(79 70 229 / 0.3)}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-green-200{--tw-border-opacity:1;border-color:rgb(187 247 208 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.border-blue-100{--tw-border-opacity:1;border-color:rgb(219 234 254 / var(--tw-border-opacity, 1))}.border-green-100{--tw-border-opacity:1;border-color:rgb(220 252 231 / var(--tw-border-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-admin{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-admin\/10{background-color:rgb(79 70 229 / 0.1)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-danger{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(66 153 225 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-success{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-warning{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-headquarters{--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1))}.bg-north{--tw-bg-opacity:1;background-color:rgb(159 122 234 / var(--tw-bg-opacity, 1))}.bg-south{--tw-bg-opacity:1;background-color:rgb(56 178 172 / var(--tw-bg-opacity, 1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-additive{--tw-bg-opacity:1;background-color:rgb(237 137 54 / var(--tw-bg-opacity, 1))}.bg-central{--tw-bg-opacity:1;background-color:rgb(66 153 225 / var(--tw-bg-opacity, 1))}.bg-premix{--tw-bg-opacity:1;background-color:rgb(140 97 60 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-50{--tw-gradient-from:#eff6ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(239 246 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-50{--tw-gradient-from:#f0fdf4 var(--tw-gradient-from-position);--tw-gradient-to:rgb(240 253 244 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-indigo-50{--tw-gradient-to:#eef2ff var(--tw-gradient-to-position)}.to-teal-50{--tw-gradient-to:#f0fdfa var(--tw-gradient-to-position)}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.pl-10{padding-left:2.5rem}.pr-4{padding-right:1rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-admin{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-green-800{--tw-text-opacity:1;color:rgb(22 101 52 / var(--tw-text-opacity, 1))}.text-headquarters{--tw-text-opacity:1;color:rgb(229 62 62 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(66 153 225 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-success{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-warning{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}.modal-transition{animation:fadeIn 0.3s ease-in-out}.headquarters-dot{position:relative;height:1.25rem;width:1.25rem}@keyframes pulse{50%{opacity:.5}0%, 100%{transform:scale(1);opacity:1}75%, 100%{transform:scale(1.5);opacity:0}}.headquarters-dot{animation:pulse 2s infinite;cursor:pointer;border-radius:9999px;border-width:2px;--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1));--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.headquarters-dot::after {
+        content: '';
+        position:absolute;
+        inset:0px;
+        border-radius:9999px;
+        background-color:rgb(229 62 62 / 0.3);
+        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }.headquarters-tooltip{border-radius:0.375rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));padding:0.75rem;font-size:0.875rem;line-height:1.25rem;font-weight:500;--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.headquarters-label{position:absolute;bottom:-2rem;left:50%;--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));white-space:nowrap;border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1));padding-top:0.25rem;padding-bottom:0.25rem;padding-left:0.5rem;padding-right:0.5rem;font-size:0.75rem;line-height:1rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}@keyframes ping {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        75%, 100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }.admin-table th{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1));padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;text-align:left;font-size:0.75rem;line-height:1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.admin-table td{white-space:nowrap;padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.btn-primary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-primary:hover{background-color:rgb(79 70 229 / 0.9)}.btn-success{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-success:hover{background-color:rgb(16 185 129 / 0.9)}.btn-warning{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-warning:hover{background-color:rgb(245 158 11 / 0.9)}.btn-danger{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-danger:hover{background-color:rgb(239 68 68 / 0.9)}.btn-secondary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-secondary:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-admin\/20:hover{background-color:rgb(79 70 229 / 0.2)}
+    .hover\:bg-admin\/90:hover{background-color:rgb(79 70 229 / 0.9)}
+    .hover\:bg-danger\/90:hover{background-color:rgb(239 68 68 / 0.9)}
+    .hover\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-primary\/90:hover{background-color:rgb(66 153 225 / 0.9)}
+    .hover\:bg-success\/90:hover{background-color:rgb(16 185 129 / 0.9)}
+    .hover\:bg-warning\/90:hover{background-color:rgb(245 158 11 / 0.9)}
+    .hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-blue-600:hover{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}
+    .hover\:bg-green-600:hover{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}
+    .hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}
+    .hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}
+    .focus\:border-admin:focus{--tw-border-opacity:1;border-color:rgb(79 70 229 / var(--tw-border-opacity, 1))}
+    .focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgb(66 153 225 / var(--tw-border-opacity, 1))}
+    .focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}
+    .focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}
+    .focus\:ring-admin\/50:focus{--tw-ring-color:rgb(79 70 229 / 0.5)}
+    .focus\:ring-primary\/50:focus{--tw-ring-color:rgb(66 153 225 / 0.5)}
+    @media (min-width: 640px){.sm\:flex-row{flex-direction:row}}
+    @media (min-width: 768px){.md\:mb-0{margin-bottom:0px}.md\:mb-4{margin-bottom:1rem}.md\:mb-6{margin-bottom:1.5rem}.md\:mt-4{margin-top:1rem}.md\:mt-0{margin-top:0px}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-12{height:3rem}.md\:h-16{height:4rem}.md\:h-\[600px\]{height:600px}.md\:w-12{width:3rem}.md\:w-16{width:4rem}.md\:w-64{width:16rem}.md\:w-auto{width:auto}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-start{align-items:flex-start}.md\:items-center{align-items:center}.md\:gap-4{gap:1rem}.md\:space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.md\:space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.md\:p-4{padding:1rem}.md\:p-6{padding:1.5rem}.md\:p-5{padding:1.25rem}.md\:px-4{padding-left:1rem;padding-right:1rem}.md\:px-6{padding-left:1.5rem;padding-right:1.5rem}.md\:py-8{padding-top:2rem;padding-bottom:2rem}.md\:pt-4{padding-top:1rem}.md\:text-right{text-align:right}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}
+    @media (min-width: 1024px){.lg\:w-80{width:20rem}}
+  </style><style type="text/css">.qa-sdk-wrapper {
+  position: fixed;
+  width: 400px;
+  right: -600px;
+  max-height: 530px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out;
+  background: #fff;
+}
+
+.qa-sdk-close-btn {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.qa-sdk-close-btn:hover {
+  border-radius: 50%;
+  background-color: #d5d9df;
+}
+
+#qa-sdk-iframe {
+  width: 400px;
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .qa-sdk-wrapper{
+    width: 356px;
+  }
+  #qa-sdk-iframe {
+    width: 356px;
+  }
+}
+</style><style id="imt-injected-styles">
+      /* 翻译加载器样式 */
+      .imt-loading-indicator {
+        vertical-align: middle !important;
+        width: 10px !important;
+        height: 10px !important;
+        display: inline-block !important;
+        margin: 0 4px !important;
+        border: 2px rgba(221, 244, 255, 0.6) solid !important;
+        border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+        border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+        border-radius: 50% !important;
+        padding: 0 !important;
+        -webkit-animation: imt-loading-animation 0.6s infinite linear !important;
+        animation: imt-loading-animation 0.6s infinite linear !important;
+      }
+
+      @-webkit-keyframes imt-loading-animation {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+
+        to {
+          -webkit-transform: rotate(359deg);
+        }
+      }
+
+      @keyframes imt-loading-animation {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(359deg);
+        }
+      }
+      .se_imt_html {
+        height: 100%;
+      }
+      .se_imt_html body {
+        position: relative;
+        min-height: 100%;
+        top: 40px;
+      }
+    </style><style id="ai-assist-webType-style">
+    .ai-assist-highlight {
+      background: yellow;
+    }
+    @media print {
+      #ai-assist-root-bangs,
+      #ai-assist-root-bilibili,
+      #ai-assist-root-new {
+        display: none !important;
+      }
+    }
+  </style>
+
   <!-- 顶部导航栏 -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
     <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
       <!-- 系统标题 -->
       <div class="flex items-center space-x-2">
         <i class="fa fa-map-marker text-headquarters text-2xl"></i>
-        <h1 class="text-xl md:text-2xl font-bold text-gray-800">XX集团全国招聘地图</h1>
+        <h1 class="text-xl md:text-2xl font-bold text-gray-800">安佑集团全国招聘地图</h1>
       </div>
       
       <!-- 功能区 -->
       <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-        <!-- 搜索框 -->
-        <div class="relative w-full md:w-64 lg:w-80">
-          <input 
-            type="text" 
-            id="search-input"
-            placeholder="搜索省份、子公司或岗位名称..." 
-           
-            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-          >
-          <i class="fa fa-search absolute left-3 top-3 text-gray-400"></i>
+        <!-- 搜索框和移动端帮助按钮容器 -->
+        <div class="flex items-center gap-2 w-full md:w-auto">
+          <!-- 搜索框 -->
+          <div class="relative w-full md:w-64 lg:w-80">
+            <input type="text" id="search-input" placeholder="搜索省份、子公司或岗位名称..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+            <i class="fa fa-search absolute left-3 top-3 text-gray-400"></i>
+          </div>
+          
+          <!-- 移动端帮助按钮 -->
+          <button id="help-btn-mobile" class="md:hidden flex items-center justify-center bg-gray-200 text-gray-700 p-2 rounded-lg hover:bg-gray-300 transition-all duration-300">
+            <i class="fa fa-question-circle"></i>
+          </button>
         </div>
         
         <!-- 管理员登录按钮 -->
-        <button id="admin-login-btn" class="flex items-center justify-center bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-all duration-300">
-          <i class="fa fa-user-secret mr-2"></i>管理员登录
-        </button>
+        <button id="admin-login-btn" class="hidden md:flex items-center justify-center px-4 py-2 rounded-lg hover:bg-gray-300 transition-all duration-300 bg-gray-200 text-gray-700"><i class="fa fa-user-secret mr-2"></i>管理员登录</button>
         
-        <!-- 帮助按钮 -->
-        <button id="help-btn" class="flex items-center justify-center bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-all duration-300">
+        <!-- PC端帮助按钮 -->
+        <button id="help-btn" class="hidden md:flex items-center justify-center bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-all duration-300">
           <i class="fa fa-question-circle mr-2"></i>帮助
         </button>
       </div>
@@ -165,12 +298,28 @@
     <div class="bg-gray-50 border-t border-gray-200 py-3">
       <div class="container mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-sm">
         <div class="flex items-center gap-6 mb-2 md:mb-0">
-          <span><i class="fa fa-building-o text-primary mr-1"></i> 子公司总数: <span id="company-count" class="font-bold">0</span></span>
-          <span><i class="fa fa-briefcase text-success mr-1"></i> 招聘岗位数: <span id="position-count" class="font-bold">0</span></span>
+          <span><i class="fa fa-building-o text-primary mr-1"></i> 在招公司数: <span id="company-count" class="font-bold">24</span></span>
+          <span><i class="fa fa-briefcase text-success mr-1"></i> 招聘岗位数: <span id="position-count" class="font-bold">49</span></span>
         </div>
-        <div class="flex items-center gap-4 flex-wrap" id="region-counts">
-          <!-- 区域计数将动态生成 -->
-        </div>
+        <div class="flex items-center gap-4 flex-wrap" id="region-counts"><span class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-north mr-1"></span>
+            华北: <span class="font-bold">8</span>
+          </span><span class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-south mr-1"></span>
+            华南: <span class="font-bold">15</span>
+          </span><span class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-central mr-1"></span>
+            华中: <span class="font-bold">14</span>
+          </span><span class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-additive mr-1"></span>
+            添加剂: <span class="font-bold">4</span>
+          </span><span class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-premix mr-1"></span>
+            预混料: <span class="font-bold">3</span>
+          </span><span class="flex items-center">
+            <span class="w-3 h-3 rounded-full bg-headquarters mr-1"></span>
+            总部: <span class="font-bold">5</span>
+          </span></div>
       </div>
     </div>
   </header>
@@ -179,27 +328,17 @@
   <main class="container mx-auto px-4 py-6">
     <!-- 地图展示区域 -->
     <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
-      <div id="map-container" class="w-full h-[400px] md:h-[600px] border border-gray-200 rounded-lg relative">
-        <!-- 总部标记点将通过JS动态添加 -->
-        <div id="headquarters-marker" class="absolute hidden" style="left: 50%; top: 50%;">
-          <div class="headquarters-dot" title="集团总部（江苏太仓）">
-            <i class="fa fa-building text-white text-xs absolute inset-0 flex items-center justify-center"></i>
-          </div>
-          <div class="headquarters-label">集团总部</div>
-          <div class="headquarters-tooltip hidden absolute -top-16 left-1/2 transform -translate-x-1/2">
-            <div class="font-bold text-headquarters">集团总部</div>
-            <div class="text-xs text-gray-500">江苏太仓</div>
-            <div class="text-xs text-gray-400 mt-1">点击查看招聘岗位</div>
-          </div>
-        </div>
-      </div>
+      <div id="map-container" class="w-full h-[400px] md:h-[600px] border border-gray-200 rounded-lg relative" _echarts_instance_="ec_1763955485351" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;"><div style="position: relative; width: 1454px; height: 598px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;"><canvas data-zr-dom-id="zr_0" width="1817" height="747" style="position: absolute; left: 0px; top: 0px; width: 1454px; height: 598px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(934px, 380px, 0px); border-color: rgb(84, 112, 198); pointer-events: none; visibility: hidden; opacity: 0;"><div class="font-bold">江苏</div>
+                        <div>子公司数量: 4 家</div>
+                        <div>招聘岗位: 12 个</div>
+                        <div class="text-gray-500 text-sm">点击查看详情</div></div></div>
     </div>
   </main>
 
   <!-- 页脚 -->
   <footer class="bg-gray-800 text-gray-400 py-6">
     <div class="container mx-auto px-4 text-center">
-      <p class="text-sm md:text-base">© 2025 XX集团 版权所有 | 招聘咨询热线：400-123-4567</p>
+      <p class="text-sm md:text-base">© 2025 安佑集团 版权所有 | 招聘咨询热线：400-123-4567</p>
     </div>
   </footer>
 
@@ -207,34 +346,22 @@
   <!-- 原有的弹窗组件保持不变，这里只展示新增的管理员相关弹窗 -->
 
   <!-- 管理员登录弹窗 -->
-  <div id="login-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+  <div id="login-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-md p-4 md:p-6 modal-transition mx-2">
       <div class="flex justify-between items-center mb-4 md:mb-6">
         <h3 class="text-lg md:text-xl font-bold text-gray-800">管理员登录</h3>
-        <button id="close-login-modal" class="text-gray-500 hover:text-gray-700 transition-colors">
+        <button id="close-login-modal" class="text-gray-500 hover:text-gray-700 transition-colors hidden">
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
       <form id="login-form" class="space-y-4">
         <div>
           <label for="username" class="block text-sm font-medium text-gray-700 mb-1">用户名</label>
-          <input 
-            type="text" 
-            id="username" 
-            name="username"
-            placeholder="请输入管理员账号"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all"
-          >
+          <input type="text" id="username" name="username" placeholder="请输入管理员账号" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all">
         </div>
         <div>
           <label for="password" class="block text-sm font-medium text-gray-700 mb-1">密码</label>
-          <input 
-            type="password" 
-            id="password" 
-            name="password"
-            placeholder="请输入管理员密码"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all"
-          >
+          <input type="password" id="password" name="password" placeholder="请输入管理员密码" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all">
         </div>
         <div class="pt-2">
           <button type="submit" class="w-full px-4 py-2 bg-admin text-white rounded-lg hover:bg-admin/90 transition-colors">
@@ -246,7 +373,7 @@
   </div>
 
   <!-- 管理员面板弹窗 -->
-  <div id="admin-panel-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="admin-panel-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-6xl max-h-[90vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
         <h3 class="text-base md:text-lg font-semibold text-gray-800 flex items-center">
@@ -285,6 +412,10 @@
                 <button id="export-excel-btn" class="flex-1 px-4 py-2 bg-success text-white rounded-lg hover:bg-success/90 transition-colors">
                   <i class="fa fa-download mr-2"></i>导出Excel数据
                 </button>
+                <!-- 新增导出HTML按钮 -->
+                <button id="export-html-btn" class="flex-1 px-4 py-2 bg-warning text-white rounded-lg hover:bg-warning/90 transition-colors">
+                  <i class="fa fa-file-code-o mr-2"></i>导出HTML文件
+                </button>
               </div>
             </div>
           </div>
@@ -315,9 +446,367 @@
                       <th class="text-xs md:text-sm">操作</th>
                     </tr>
                   </thead>
-                  <tbody id="admin-company-list" class="bg-white divide-y divide-gray-200">
-                    <!-- 公司列表将动态生成 -->
-                  </tbody>
+                  <tbody id="admin-company-list" class="bg-white divide-y divide-gray-200"><tr>
+          <td class="text-xs md:text-sm">总部</td>
+          <td class="text-xs md:text-sm">江苏</td>
+          <td class="text-xs md:text-sm">集团总部</td>
+          <td class="text-xs md:text-sm">5</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="0">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="0">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">预混料</td>
+          <td class="text-xs md:text-sm">江苏</td>
+          <td class="text-xs md:text-sm">苏州安佑</td>
+          <td class="text-xs md:text-sm">3</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="1">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="1">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华南</td>
+          <td class="text-xs md:text-sm">海南</td>
+          <td class="text-xs md:text-sm">海南安佑</td>
+          <td class="text-xs md:text-sm">4</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="2">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="2">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">江苏</td>
+          <td class="text-xs md:text-sm">江苏安佑</td>
+          <td class="text-xs md:text-sm">3</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="3">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="3">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">江西</td>
+          <td class="text-xs md:text-sm">赣州安佑</td>
+          <td class="text-xs md:text-sm">2</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="4">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="4">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华南</td>
+          <td class="text-xs md:text-sm">云南</td>
+          <td class="text-xs md:text-sm">玉溪安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="5">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="5">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华北</td>
+          <td class="text-xs md:text-sm">内蒙古</td>
+          <td class="text-xs md:text-sm">包头安昕</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="6">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="6">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华北</td>
+          <td class="text-xs md:text-sm">天津</td>
+          <td class="text-xs md:text-sm">天津安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="7">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="7">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华南</td>
+          <td class="text-xs md:text-sm">贵州</td>
+          <td class="text-xs md:text-sm">贵州安佑</td>
+          <td class="text-xs md:text-sm">5</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="8">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="8">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华北</td>
+          <td class="text-xs md:text-sm">甘肃</td>
+          <td class="text-xs md:text-sm">兰州安佑</td>
+          <td class="text-xs md:text-sm">2</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="9">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="9">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华南</td>
+          <td class="text-xs md:text-sm">广西</td>
+          <td class="text-xs md:text-sm">广西安佑</td>
+          <td class="text-xs md:text-sm">3</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="10">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="10">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华南</td>
+          <td class="text-xs md:text-sm">广东</td>
+          <td class="text-xs md:text-sm">高州安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="11">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="11">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华北</td>
+          <td class="text-xs md:text-sm">辽宁</td>
+          <td class="text-xs md:text-sm">辽宁安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="12">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="12">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">添加剂</td>
+          <td class="text-xs md:text-sm">湖北</td>
+          <td class="text-xs md:text-sm">山川生物</td>
+          <td class="text-xs md:text-sm">4</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="13">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="13">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华北</td>
+          <td class="text-xs md:text-sm">山西</td>
+          <td class="text-xs md:text-sm">山西安佑</td>
+          <td class="text-xs md:text-sm">2</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="14">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="14">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">湖北</td>
+          <td class="text-xs md:text-sm">襄阳安佑</td>
+          <td class="text-xs md:text-sm">2</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="15">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="15">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">浙江</td>
+          <td class="text-xs md:text-sm">浙江安佑</td>
+          <td class="text-xs md:text-sm">2</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="16">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="16">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华南</td>
+          <td class="text-xs md:text-sm">福建</td>
+          <td class="text-xs md:text-sm">漳州日高</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="17">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="17">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华北</td>
+          <td class="text-xs md:text-sm">河南</td>
+          <td class="text-xs md:text-sm">驻马店安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="18">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="18">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">湖北</td>
+          <td class="text-xs md:text-sm">武汉安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="19">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="19">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">重庆</td>
+          <td class="text-xs md:text-sm">重庆安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="20">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="20">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">江苏</td>
+          <td class="text-xs md:text-sm">南通安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="21">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="21">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">湖北</td>
+          <td class="text-xs md:text-sm">荆州安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="22">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="22">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华中</td>
+          <td class="text-xs md:text-sm">安徽</td>
+          <td class="text-xs md:text-sm">安徽安佑</td>
+          <td class="text-xs md:text-sm">1</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="23">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="23">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
+        </tr></tbody>
                 </table>
               </div>
             </div>
@@ -327,7 +816,7 @@
       
       <div class="p-3 md:p-4 border-t border-gray-200 bg-gray-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
         <div class="text-xs md:text-sm text-gray-600">
-          当前数据：<span id="admin-data-count">0</span> 家公司，<span id="admin-position-count">0</span> 个岗位
+          当前数据：<span id="admin-data-count">24</span> 家公司，<span id="admin-position-count">49</span> 个岗位
         </div>
         <button id="logout-btn" class="px-3 md:px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors text-xs md:text-sm">
           <i class="fa fa-sign-out mr-1"></i>退出登录
@@ -337,7 +826,7 @@
   </div>
 
   <!-- 添加/编辑公司弹窗 -->
-  <div id="company-modal-admin" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="company-modal-admin" class="fixed inset-0 bg-black/50 z-[999] hidden flex items-center justify-center p-2 md:p-4">
     <div class="bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
         <h3 id="company-modal-title" class="text-base md:text-lg font-semibold text-gray-800">添加子公司</h3>
@@ -349,12 +838,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
           <div>
             <label for="company-region" class="block text-sm font-medium text-gray-700 mb-1">所属区域 *</label>
-            <select 
-              id="company-region" 
-              name="region"
-              class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all"
-              required
-            >
+            <select id="company-region" name="region" class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all" required="">
               <option value="">请选择区域</option>
               <option value="华北">华北区</option>
               <option value="华南">华南区</option>
@@ -366,63 +850,28 @@
           </div>
           <div>
             <label for="company-province" class="block text-sm font-medium text-gray-700 mb-1">省份 *</label>
-            <input 
-              type="text" 
-              id="company-province" 
-              name="province"
-              placeholder="请输入省份"
-              class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all"
-              required
-            >
+            <input type="text" id="company-province" name="province" placeholder="请输入省份" class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all" required="">
           </div>
         </div>
         
         <div>
           <label for="company-name" class="block text-sm font-medium text-gray-700 mb-1">公司名称 *</label>
-          <input 
-            type="text" 
-            id="company-name" 
-            name="company"
-            placeholder="请输入公司名称"
-            class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all"
-            required
-          >
+          <input type="text" id="company-name" name="company" placeholder="请输入公司名称" class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all" required="">
         </div>
         
         <div>
           <label for="company-address" class="block text-sm font-medium text-gray-700 mb-1">公司地址 *</label>
-          <input 
-            type="text" 
-            id="company-address" 
-            name="address"
-            placeholder="请输入详细地址"
-            class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all"
-            required
-          >
+          <input type="text" id="company-address" name="address" placeholder="请输入详细地址" class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all" required="">
         </div>
         
         <div>
           <label for="company-contact" class="block text-sm font-medium text-gray-700 mb-1">联系电话 *</label>
-          <input 
-            type="text" 
-            id="company-contact" 
-            name="contact"
-            placeholder="请输入联系电话"
-            class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all"
-            required
-          >
+          <input type="text" id="company-contact" name="contact" placeholder="请输入联系电话" class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all" required="">
         </div>
         
         <div>
           <label for="company-email" class="block text-sm font-medium text-gray-700 mb-1">招聘邮箱 *</label>
-          <input 
-            type="email" 
-            id="company-email" 
-            name="email"
-            placeholder="请输入招聘邮箱"
-            class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all"
-            required
-          >
+          <input type="email" id="company-email" name="email" placeholder="请输入招聘邮箱" class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-admin/50 focus:border-admin transition-all" required="">
         </div>
         
         <!-- 岗位管理区域 -->
@@ -440,7 +889,7 @@
         </div>
       </form>
       <div class="p-3 md:p-4 border-t border-gray-200 bg-gray-50 flex justify-end gap-2">
-        <button id="cancel-company-modal" class="btn-secondary text-xs md:text-sm">取消</button>
+        <button id="cancel-company-modal" class="btn-secondary text-xs md:text-sm hidden">取消</button>
         <button type="submit" form="company-form" class="btn-primary text-xs md:text-sm">
           <i class="fa fa-save mr-1"></i>保存
         </button>
@@ -449,17 +898,104 @@
   </div>
 
   <!-- 搜索结果弹窗 -->
-  <div id="search-results-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="search-results-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-        <h3 id="search-results-title" class="text-base md:text-lg font-semibold text-gray-800">搜索结果</h3>
+        <h3 id="search-results-title" class="text-base md:text-lg font-semibold text-gray-800">搜索"经理"的结果</h3>
         <button id="close-search-results" class="text-gray-500 hover:text-gray-700 transition-colors">
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
-      <div id="search-results-content" class="flex-1 overflow-y-auto p-4 md:p-6">
-        <!-- 搜索结果将动态生成 -->
-      </div>
+      <div id="search-results-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="mb-6">
+          <h4 class="text-base md:text-lg font-semibold text-gray-800 mb-3">岗位匹配 (14)</h4>
+          <div class="space-y-3">
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="0">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">产品经理</h5>
+                <p class="text-sm text-gray-600 mt-1">集团总部 - <span class="text-primary">工作地点: 江苏省太仓市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="1">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">销售经理（预混料）</h5>
+                <p class="text-sm text-gray-600 mt-1">苏州安佑 - <span class="text-primary">工作地点: 江苏省太仓市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="2">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">销售经理（猪料）</h5>
+                <p class="text-sm text-gray-600 mt-1">海南安佑 - <span class="text-primary">工作地点: 海南省文昌市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="3">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">品管经理</h5>
+                <p class="text-sm text-gray-600 mt-1">海南安佑 - <span class="text-primary">工作地点: 海南省文昌市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 7000-10000/月</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="4">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">财务经理</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏安佑 - <span class="text-primary">工作地点: 江苏省淮安市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="5">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">销售经理（猪料）</h5>
+                <p class="text-sm text-gray-600 mt-1">贵州安佑 - <span class="text-primary">工作地点: 贵州省贵阳市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="6">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">品管经理</h5>
+                <p class="text-sm text-gray-600 mt-1">贵州安佑 - <span class="text-primary">工作地点: 贵州省贵阳市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 7000-10000/月</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="7">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">销售经理（猪料）</h5>
+                <p class="text-sm text-gray-600 mt-1">兰州安佑 - <span class="text-primary">工作地点: 甘肃省兰州市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="8">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">销售经理（猪料）</h5>
+                <p class="text-sm text-gray-600 mt-1">广西安佑 - <span class="text-primary">工作地点: 广西南宁市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="9">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">销售经理（水产）</h5>
+                <p class="text-sm text-gray-600 mt-1">高州安佑 - <span class="text-primary">工作地点: 广东省茂名市高州市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="10">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">销售经理（畜禽/水产）</h5>
+                <p class="text-sm text-gray-600 mt-1">辽宁安佑 - <span class="text-primary">工作地点: 辽宁省沈阳市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="11">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">销售经理（水产）</h5>
+                <p class="text-sm text-gray-600 mt-1">山川生物 - <span class="text-primary">工作地点: 湖北省武汉市</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="12">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">海外销售经理</h5>
+                <p class="text-sm text-gray-600 mt-1">山川生物 - <span class="text-primary">工作地点: 越南、泰国</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 1-1.5w/月</p>
+              </div>
+            
+              <div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-match-index="13">
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">宠物产品经理</h5>
+                <p class="text-sm text-gray-600 mt-1">山川生物 - <span class="text-primary">工作地点: 湖北省</span></p>
+                <p class="text-xs text-gray-500 mt-2">薪资: 面议</p>
+              </div>
+            
+          </div>
+        </div></div>
       <div class="p-3 md:p-4 border-t border-gray-200 bg-gray-50 flex justify-end">
         <button id="close-search-results-btn" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm md:text-base">
           关闭
@@ -469,17 +1005,63 @@
   </div>
 
   <!-- 省份公司列表弹窗 -->
-  <div id="province-companies-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="province-companies-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-        <h3 id="province-companies-title" class="text-base md:text-lg font-semibold text-gray-800">省份公司列表</h3>
+        <h3 id="province-companies-title" class="text-base md:text-lg font-semibold text-gray-800">江苏 - 子公司列表</h3>
         <button id="close-province-companies" class="text-gray-500 hover:text-gray-700 transition-colors">
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
-      <div id="province-companies-content" class="flex-1 overflow-y-auto p-4 md:p-6">
-        <!-- 省份公司列表将动态生成 -->
-      </div>
+      <div id="province-companies-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="0">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">集团总部</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省太仓市沙溪镇岳王新港中路239号</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0512-33006618</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">5 个岗位</span>
+                <p class="text-xs text-gray-500 mt-1">总部</p>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="1">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">苏州安佑</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省苏州市太仓市沙溪镇岳王新港中路239号1幢</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0512—33006701</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">3 个岗位</span>
+                <p class="text-xs text-gray-500 mt-1">预混料</p>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="3">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">江苏安佑</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省淮安市淮安区经济开发区山阳大道69号</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0512-33006618</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">3 个岗位</span>
+                <p class="text-xs text-gray-500 mt-1">华中</p>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="21">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">南通安佑</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省南通市如皋市如城街道如港路86号211室（经营场所：江苏省南通市如皋市如城街道中山西路609号</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0513-87989199</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">1 个岗位</span>
+                <p class="text-xs text-gray-500 mt-1">华中</p>
+              </div>
+            </div>
+          </div></div></div>
       <div class="p-3 md:p-4 border-t border-gray-200 bg-gray-50 flex justify-end">
         <button id="close-province-companies-btn" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm md:text-base">
           返回地图
@@ -489,17 +1071,70 @@
   </div>
 
   <!-- 公司岗位列表弹窗 -->
-  <div id="company-positions-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="company-positions-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-        <h3 id="company-positions-title" class="text-base md:text-lg font-semibold text-gray-800">公司岗位列表</h3>
+        <h3 id="company-positions-title" class="text-base md:text-lg font-semibold text-gray-800">集团总部 - 招聘岗位</h3>
         <button id="close-company-positions" class="text-gray-500 hover:text-gray-700 transition-colors">
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
-      <div id="company-positions-content" class="flex-1 overflow-y-auto p-4 md:p-6">
-        <!-- 公司岗位列表将动态生成 -->
-      </div>
+      <div id="company-positions-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="0">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">兽医博士</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 全国</p>
+                <p class="text-sm text-warning mt-1">薪资: 面议</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="1">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">猪料配方师（博士）</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 全国</p>
+                <p class="text-sm text-warning mt-1">薪资: 面议</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="2">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">产品经理</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 江苏省太仓市</p>
+                <p class="text-sm text-warning mt-1">薪资: 面议</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="3">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">法务专员</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 江苏省太仓市</p>
+                <p class="text-sm text-warning mt-1">薪资: 面议</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">技术服务岗</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 江苏省太仓市</p>
+                <p class="text-sm text-warning mt-1">薪资: 5000-9000/月</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div></div></div>
       <div class="p-3 md:p-4 border-t border-gray-200 bg-gray-50 flex flex-col md:flex-row justify-between gap-2">
         <button id="back-to-companies-btn" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors text-sm md:text-base">
           <i class="fa fa-arrow-left mr-2"></i>返回子公司列表
@@ -512,17 +1147,106 @@
   </div>
 
   <!-- 岗位详情弹窗 -->
-  <div id="position-detail-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="position-detail-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-        <h3 id="position-detail-title" class="text-base md:text-lg font-semibold text-gray-800">岗位详情</h3>
+        <h3 id="position-detail-title" class="text-base md:text-lg font-semibold text-gray-800">猪料配方师（博士）</h3>
         <button id="close-position-detail" class="text-gray-500 hover:text-gray-700 transition-colors">
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
-      <div id="position-detail-content" class="flex-1 overflow-y-auto p-4 md:p-6">
-        <!-- 岗位详情将动态生成 -->
-      </div>
+      <div id="position-detail-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-6">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 md:p-5 rounded-xl border border-blue-100 shadow-sm">
+          <h4 class="font-bold text-gray-800 mb-3 text-base md:text-lg flex items-center">
+            <i class="fa fa-info-circle text-primary mr-2"></i>基本信息
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div class="bg-white p-3 rounded-lg shadow-sm">
+              <p class="text-xs text-gray-500 mb-1">公司名称</p>
+              <p class="font-medium text-gray-800 text-sm md:text-base">集团总部</p>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm">
+              <p class="text-xs text-gray-500 mb-1">工作地点</p>
+              <p class="font-medium text-gray-800 text-sm md:text-base">全国</p>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm">
+              <p class="text-xs text-gray-500 mb-1">薪资待遇</p>
+              <p class="font-medium text-warning text-sm md:text-base">面议</p>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm">
+              <p class="text-xs text-gray-500 mb-1">招聘热线</p>
+              <p class="font-medium text-gray-800 text-sm md:text-base">18121567875（胡经理）</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-4 md:p-5 rounded-xl border border-gray-200 shadow-sm">
+          <h4 class="font-bold text-gray-800 mb-3 text-base md:text-lg flex items-center">
+            <i class="fa fa-tasks text-success mr-2"></i>岗位职责
+          </h4>
+          <ul class="space-y-2">
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>贯彻公司产品理念，对各管理片区配方计算人员进行宣导培训</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>负责区域人才梯队建设，组织开展人员的选拔与培养</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>贯彻集团技术方向及开展技术研发工作，协助总经理开展产品定位工作</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>按照总体产品定位及产品品质相对固化、稳定的要求、完成各个产品配方设计及优化工作</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>协同各产品线/产品组，对分、子公司配方标准执行情况进行监督审核</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>协助各分子公司生产、品管工作，保证原料及产品质量和供应</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>收集并了解区域内客户的反馈与需求，连通一线经营单元与专业产品条线。</span>
+              </li>
+            
+          </ul>
+        </div>
+        
+        <div class="bg-white p-4 md:p-5 rounded-xl border border-gray-200 shadow-sm">
+          <h4 class="font-bold text-gray-800 mb-3 text-base md:text-lg flex items-center">
+            <i class="fa fa-graduation-cap text-warning mr-2"></i>岗位要求
+          </h4>
+          <ul class="space-y-2">
+            
+          </ul>
+        </div>
+        
+        <div class="bg-gradient-to-r from-green-50 to-teal-50 p-4 md:p-5 rounded-xl border border-green-100 shadow-sm">
+          <h4 class="font-bold text-green-800 mb-4 text-base md:text-lg flex items-center">
+            <i class="fa fa-paper-plane text-green-600 mr-2"></i>我要投递
+          </h4>
+          <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <a href="tel:18121567875（胡经理）" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
+              <i class="fa fa-phone mr-2"></i>电话咨询
+            </a>
+            <a href="mailto:hrzhaopin@anschina.cn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
+              <i class="fa fa-envelope mr-2"></i>邮箱投递
+            </a>
+          </div>
+        </div>
+      </div></div>
       <div class="p-3 md:p-4 border-t border-gray-200 bg-gray-50 flex flex-col md:flex-row justify-between gap-2">
         <button id="back-to-positions-btn" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors text-sm md:text-base">
           <i class="fa fa-arrow-left mr-2"></i>返回岗位列表
@@ -535,34 +1259,34 @@
   </div>
 
   <!-- 成功/错误提示弹窗 -->
-  <div id="success-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="success-modal" class="fixed inset-0 bg-black/50 z-[1000] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-md p-4 md:p-6 text-center modal-transition">
       <div class="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-green-100 text-green-500 text-xl md:text-2xl mb-3 md:mb-4">
         <i class="fa fa-check"></i>
       </div>
       <h3 class="text-base md:text-lg font-semibold text-gray-800 mb-2">操作成功</h3>
-      <p id="success-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">数据已成功更新</p>
-      <button id="close-success-modal" class="px-4 md:px-6 py-2 bg-admin text-white rounded-lg hover:bg-admin/90 transition-colors text-sm md:text-base">
+      <p id="success-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Excel文件已成功上传并更新数据</p>
+      <button id="close-success-modal" class="px-4 md:px-6 py-2 bg-admin text-white rounded-lg hover:bg-admin/90 transition-colors text-sm md:text-base hidden">
         确定
       </button>
     </div>
   </div>
 
-  <div id="error-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="error-modal" class="fixed inset-0 bg-black/50 z-[1000] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-md p-4 md:p-6 text-center modal-transition">
       <div class="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-red-100 text-red-500 text-xl md:text-2xl mb-3 md:mb-4">
         <i class="fa fa-exclamation-triangle"></i>
       </div>
       <h3 class="text-base md:text-lg font-semibold text-gray-800 mb-2">操作失败</h3>
-      <p id="error-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">请检查文件格式是否正确</p>
-      <button id="close-error-modal" class="px-4 md:px-6 py-2 bg-danger text-white rounded-lg hover:bg-danger/90 transition-colors text-sm md:text-base">
+      <p id="error-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">请先选择Excel文件</p>
+      <button id="close-error-modal" class="px-4 md:px-6 py-2 bg-danger text-white rounded-lg hover:bg-danger/90 transition-colors text-sm md:text-base hidden">
         确定
       </button>
     </div>
   </div>
 
   <!-- 上传加载中弹窗 -->
-  <div id="upload-loading" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="upload-loading" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-md p-4 md:p-6 text-center modal-transition">
       <div class="inline-block animate-spin rounded-full h-10 w-10 md:h-12 md:w-12 border-t-2 border-b-2 border-admin mb-3 md:mb-4"></div>
       <h3 class="text-base md:text-lg font-semibold text-gray-800 mb-2">正在处理</h3>
@@ -571,13 +1295,13 @@
   </div>
 
   <!-- 帮助弹窗 -->
-  <div id="help-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-2 md:p-4">
+  <div id="help-modal" class="fixed inset-0 bg-black/50 z-[999] hidden flex items-center justify-center p-2 md:p-4">
     <div class="bg-white rounded-xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
         <h3 class="text-base md:text-lg font-semibold text-gray-800 flex items-center">
           <i class="fa fa-question-circle text-primary mr-2"></i> 系统使用帮助
         </h3>
-        <button id="close-help-modal" class="text-gray-500 hover:text-gray-700 transition-colors">
+        <button id="close-help-modal" class="text-gray-500 hover:text-gray-700 transition-colors hidden">
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
@@ -628,77 +1352,976 @@
 
     // 模拟数据 - 修复工作地点属于岗位信息
     let recruitData = [
+  {
+    "region": "总部",
+    "province": "江苏",
+    "company": "集团总部",
+    "address": "江苏省太仓市沙溪镇岳王新港中路239号",
+    "contact": "0512-33006618",
+    "email": "hrzhaopin@anschina.cn",
+    "positions": [
       {
-        region: '华北',
-        province: '北京',
-        company: '北京分公司',
-        address: '北京市朝阳区建国路88号现代国际大厦A座25层',
-        contact: '010-88886666',
-        email: 'hr-beijing@xxgroup.com',
-        positions: [
-          {
-            name: '销售经理',
-            workLocation: '北京市朝阳区', // 工作地点属于岗位
-            hotline: '010-88886666-801', // 新增招聘热线字段
-            responsibilities: ['负责华北区域销售团队管理及销售目标达成', '制定区域销售策略和市场推广计划'],
-            requirements: ['本科及以上学历，市场营销、工商管理等相关专业', '5年以上快消品行业销售经验'],
-            salary: '18-25K/月 + 绩效奖金 + 年终分红'
-          },
-          {
-            name: '财务主管',
-            workLocation: '北京市海淀区', // 工作地点属于岗位
-            hotline: '010-88886666-802', // 新增招聘热线字段
-            responsibilities: ['负责分公司财务核算、报表编制和财务分析', '管理财务团队，制定财务管理制度和流程'],
-            requirements: ['本科及以上学历，会计学、财务管理等相关专业', '3年以上财务主管工作经验'],
-            salary: '12-18K/月 + 年终奖金'
-          }
+        "name": "兽医博士",
+        "workLocation": "全国",
+        "hotline": "18121567875（胡经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "参与制定事业部生产发展战略规划，防疫体系建设规划、年度经营计划",
+          "主持公司防疫工作结合各猪场猪群健康状况，制定防疫计划及方案",
+          "负责各猪场保健、免疫方案的制定",
+          "负责规范防疫工作各个环节及流程改进，快速提出重大疫情时的应急处理方案",
+          "负责对兽医技术团队的管理及人才管理培养",
+          "审核疫苗兽药采购计划，指导管理、规范药品的使用",
+          "熟悉猪场各种病死动物及产品、兽医器械物资的无害化处理方法",
+          "能初步判断猪场个体，群体发病，掌握典型临床症状及解剖病理变化‘进行初步诊断。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "猪料配方师（博士）",
+        "workLocation": "全国",
+        "hotline": "18121567875（胡经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "贯彻公司产品理念，对各管理片区配方计算人员进行宣导培训",
+          "负责区域人才梯队建设，组织开展人员的选拔与培养",
+          "贯彻集团技术方向及开展技术研发工作，协助总经理开展产品定位工作",
+          "按照总体产品定位及产品品质相对固化、稳定的要求、完成各个产品配方设计及优化工作",
+          "协同各产品线/产品组，对分、子公司配方标准执行情况进行监督审核",
+          "协助各分子公司生产、品管工作，保证原料及产品质量和供应",
+          "收集并了解区域内客户的反馈与需求，连通一线经营单元与专业产品条线。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "产品经理",
+        "workLocation": "江苏省太仓市",
+        "hotline": "18121567875（胡经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "组织开展市场调研与分析，跟踪行业动态和用户需求，完成研究报告并进行市场细分与产品定位",
+          "参与制定产品战略及营销方案，组织业务计划编制与产品创意论证，编制新产品开发任务书并提交立项",
+          "在产品开发过程中参与需求分析、产品定义等环节，收集市场与竞争信息以指导开发并支持评审",
+          "协调产品试销及市场发布工作，推动新产品上市计划，确保产品顺利推广。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "法务专员",
+        "workLocation": "江苏省太仓市",
+        "hotline": "18121567875（胡经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责处理具体合同起草、谈判、评审事务，负责合同履行状态的监控",
+          "负责投资项目法律尽职调查、法律文书起草、文件准备",
+          "负责新公司名称核准、工商注册、变更登记",
+          "负责合同争议、劳务纠纷及其他案件事务处理，侵权案件、产品维权、行政处罚案件处理",
+          "负责集团保险续约、理赔及知识产权管理事务",
+          "负责审核公司对外宣传材料事务",
+          "负责法律培训、法律咨询事务。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "技术服务岗",
+        "workLocation": "江苏省太仓市",
+        "hotline": "18121567875（胡经理）",
+        "salary": "5000-9000/月",
+        "responsibilities": [
+          "根据市场需要，开展实证实验、牧场服务",
+          "根据已经制定方案，解决客户现场问题",
+          "配合业务经理了解客户情况并及时反馈",
+          "持续跟踪客户合作情况，掌握客户动态及产品使用效果",
+          "针对客户投诉，制定方案快速响应，完成服务",
+          "收集竞争对手资料、样品",
+          "了解竞争对手的客户价格及政策",
+          "协助业务经理开发市场或空白市场开发。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "预混料",
+    "province": "江苏",
+    "company": "苏州安佑",
+    "address": "江苏省苏州市太仓市沙溪镇岳王新港中路239号1幢",
+    "contact": "0512—33006701",
+    "email": "yuhun-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "区域配方师",
+        "workLocation": "全国",
+        "hotline": "18151581305（白经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "根据产品定位、原料价格、季节气候、加工工艺等因素变化，适时调整产品配方",
+          "负责配方成本分析及根据原料行情变化及时提出配方调整预警",
+          "协助品管、采购做好原料质量控制和成品成本优化",
+          "协助相关部门及时处理市场投诉和开展技术服务。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "销售经理（预混料）",
+        "workLocation": "江苏省太仓市",
+        "hotline": "18151581305（白经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "市场信息收集和客户信息沟通，做好老客户维护及新客户开发工作",
+          "团队的组建与管理",
+          "树立品牌形象，分析竞争对手情况",
+          "制定合理的任务计划，带领团队有计划有目标完成",
+          "制定合理有效的市场活动，并组织推动;协助上级制定销售战略、销售计划和量化销售目标。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "技术服务岗",
+        "workLocation": "江苏省太仓市",
+        "hotline": "18151581305（白经理）",
+        "salary": "5000-9000/月",
+        "responsibilities": [
+          "根据市场需要，开展实证实验、牧场服务",
+          "根据已经制定方案，解决客户现场问题",
+          "配合业务经理了解客户情况并及时反馈",
+          "持续跟踪客户合作情况，掌握客户动态及产品使用效果",
+          "针对客户投诉，制定方案快速响应，完成服务",
+          "收集竞争对手资料、样品",
+          "了解竞争对手的客户价格及政策",
+          "协助业务经理开发市场或空白市场开发。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华南",
+    "province": "海南",
+    "company": "海南安佑",
+    "address": "海南省文昌市东路镇约亭工业园内1号",
+    "contact": 13307553660,
+    "email": "hainan-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "区域配方师",
+        "workLocation": "海南省文昌市",
+        "hotline": "13138918696（田经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "根据产品定位、原料价格、季节气候、加工工艺等因素变化，适时调整产品配方",
+          "负责配方成本分析及根据原料行情变化及时提出配方调整预警",
+          "协助品管、采购做好原料质量控制和成品成本优化",
+          "协助相关部门及时处理市场投诉和开展技术服务。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "销售经理（猪料）",
+        "workLocation": "海南省文昌市",
+        "hotline": "13138918696（田经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "市场信息收集和客户信息沟通，做好老客户维护及新客户开发工作",
+          "团队的组建与管理",
+          "树立品牌形象，分析竞争对手情况",
+          "制定合理的任务计划，带领团队有计划有目标完成",
+          "制定合理有效的市场活动，并组织推动;协助上级制定销售战略、销售计划和量化销售目标。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "销售业务员（猪/水产料）",
+        "workLocation": "海南省文昌市",
+        "hotline": "13138918696（田经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责产品的市场渠道开拓与销售工作，执行并完成公司产品年度销售计划",
+          "根据公司市场营销战略，积极完成销量指标，扩大产品市场占有率",
+          "与客户保持良好沟通，实时把握客户需求，管理维护客户关系，定期拜访客户，及时了解行业变化，收集并反馈客户信息",
+          "与客户洽谈并初拟合同，或与合作公司代表签订经销协议",
+          "收集产品使用反馈信息，实证数据等。帮助客户协调所需服务支持，协助处理客户投诉等",
+          "参与和配合公司开展相关行业展会。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "品管经理",
+        "workLocation": "海南省文昌市",
+        "hotline": "13812907747（刘经理）",
+        "salary": "7000-10000/月",
+        "responsibilities": [
+          "负责公司全面品质管理体系的建立并监督实施",
+          "负责公司原料及成品质量管理工作",
+          " 协调解决客户投诉处理、退换货管理",
+          "负责化验室的管理和运行",
+          "处理外部相关事务，如生产许可证办理或换证等",
+          "饲料厂生物安全管理相关工作。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "江苏",
+    "company": "江苏安佑",
+    "address": "江苏省淮安市淮安区经济开发区山阳大道69号",
+    "contact": "0512-33006618",
+    "email": "hrzhaopin@anschina.cn",
+    "positions": [
+      {
+        "name": "财务经理",
+        "workLocation": "江苏省淮安市",
+        "hotline": "18121567875（胡经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "在上级的领导和监督下定期完成量化的工作要求，并能独立处理和解决\n所负责的任务",
+          "协助财务预算、审核、监督工作，按照公司及政府有关部门要求及时编制\n各种财务报表并报送相关部门",
+          "负责员工报销费用的审核、凭证的编制和登帐",
+          "对已审核的原始凭证及时填制记帐",
+          "准备、分析、核对税务相关问题",
+          "审计合同、制作帐目表格。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "驻场技术员",
+        "workLocation": "江苏省淮安市",
+        "hotline": "13382307069（苗经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "驻场技术服务:协助客户养殖场进行养殖规范、疾病防控、疾病诊断、生物安全防控",
+          "按饲喂程序指导客户规范饲喂",
+          "维护客户关系，开展产品实证、打造客户标杆",
+          "做好猪场客户的管理，辅助提升客户猪场成绩（成活率，psy，料肉比等）定期向领导汇报猪场的情况。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "技术服务岗",
+        "workLocation": "江苏省淮安市",
+        "hotline": "13382307069（苗经理）",
+        "salary": "5000-9000/月",
+        "responsibilities": [
+          "根据市场需要，开展实证实验、牧场服务",
+          "根据已经制定方案，解决客户现场问题",
+          "配合业务经理了解客户情况并及时反馈",
+          "持续跟踪客户合作情况，掌握客户动态及产品使用效果",
+          "针对客户投诉，制定方案快速响应，完成服务",
+          "收集竞争对手资料、样品",
+          "了解竞争对手的客户价格及政策",
+          "协助业务经理开发市场或空白市场开发。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "江西",
+    "company": "赣州安佑",
+    "address": "江西省赣州市赣县区赣州高新技术产业开发区洋电西大道",
+    "contact": "0512-33006618",
+    "email": "hrzhaopin@anschina.cn",
+    "positions": [
+      {
+        "name": "会计",
+        "workLocation": "江西省赣州市",
+        "hotline": "18121567875（胡经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "根据会计制度规定，及时、准确核算公司收入，编制记账凭证",
+          "及时、准确核算商品收发业务，编制采购、成本结转凭证",
+          "审核费用单据，编制费用报销凭证，计算各类奖金",
+          "定期组织盘点并编制存货盘点表，根据盈亏结果进行账务处理，保证账实相符",
+          "结账及编制财务报表并报税",
+          "完成财务部门内部其他工作及配合相关部门的有关工作。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "现场品管",
+        "workLocation": "江西省赣州市",
+        "hotline": "15979789686（段经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "保证进库原物料的品质合格，对进库原物料的品质进行监督",
+          "保证制成品的品质合格，每天对现场品管日报表核查，对生产现场进行\n巡查，发现问题及时解决",
+          "对制成品检验报告进行复核，对异常情况查找原因，并及时解决",
+          "定期对成品仓库巡查，发现问题及时提出解决方案",
+          "协调解决客户投诉处理",
+          "饲料厂生物安全管理相关工作。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华南",
+    "province": "云南",
+    "company": "玉溪安佑",
+    "address": "云南省玉溪市红塔区研和工业园区滇中(玉溪)粮食物流产业园",
+    "contact": "0512-33006618",
+    "email": "hrzhaopin@anschina.cn",
+    "positions": [
+      {
+        "name": "出纳",
+        "workLocation": "云南省玉溪市",
+        "hotline": "18121567875（胡经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "按规定每日登记现金日记账",
+          "根据记账凭证收付现金",
+          "每日负责盘清库存现金，核对现金日记账，按规定程序保管现金，保证库存现金及有价证券安全",
+          "保管好各种空白支票、票据、印鉴",
+          "负责接收各项银行到款进账凭证，并传递到有关的制单人员",
+          "负责公司账务核算，报税等工作。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华北",
+    "province": "内蒙古",
+    "company": "包头安昕",
+    "address": "内蒙古自治区包头市九原区绿色食品加工园区昌盛路以南",
+    "contact": 13190746518,
+    "email": "btax-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "人事专员",
+        "workLocation": "内蒙古自治区包头市九原区",
+        "hotline": "13848250141（周经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "执行招聘工作流程，协调、办理员工招聘、入职、离职、调任、升职等手续",
+          "负责员工档案管理与人事信息更新，劳动合同的签订、续签及管理",
+          "负责员工考勤核对，处理员工社会保险、住房公积金事宜",
+          "协同开展新员工入职培训、执行年度培训计划，培训效果的跟踪、反馈",
+          "负责公司行政后勤工作，与各部门的协调工作，做好信息的上传下达。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华北",
+    "province": "天津",
+    "company": "天津安佑",
+    "address": "天津市宁河县潘庄工业园区一纬路",
+    "contact": "022-69310338",
+    "email": "tianjin-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "采购专员",
+        "workLocation": "天津市宁河县",
+        "hotline": "13488879850（李经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "协助片区采购经理负责按照年、季、月向各条线申报需求计划、执行统采分配合同，协调并监督各子公司接货及货款支付情况",
+          "负责管理片区下辖各子公司安全库存、总头寸，并及时向条线人员沟通汇报",
+          "及时关注船运、铁路等物流情况，并根据各子公司交期要求，进行沟通协调",
+          "协助片区采购经理完成商务洽谈、对接、纠纷处理等事宜",
+          "协助片区采购经理完成对应各子公司地采原料供应商选择及维护、价格谈判及合同签订",
+          "协助配合片区采购经理完成对应子公司采购内勤管理工作。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华南",
+    "province": "贵州",
+    "company": "贵州安佑",
+    "address": "贵州省贵阳市息烽县永靖镇坝上工业园区",
+    "contact": "0851-87715558",
+    "email": "guizhou-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售经理（猪料）",
+        "workLocation": "贵州省贵阳市",
+        "hotline": "15985116723（赵经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "市场信息收集和客户信息沟通，做好老客户维护及新客户开发工作",
+          "团队的组建与管理",
+          "树立品牌形象，分析竞争对手情况",
+          "制定合理的任务计划，带领团队有计划有目标完成",
+          "制定合理有效的市场活动，并组织推动;协助上级制定销售战略、销售计划和量化销售目标。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "销售业务员（猪料）",
+        "workLocation": "贵州省贵阳市",
+        "hotline": "15985116723（赵经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责产品的市场渠道开拓与销售工作，执行并完成公司产品年度销售计划",
+          "根据公司市场营销战略，积极完成销量指标，扩大产品市场占有率",
+          "与客户保持良好沟通，实时把握客户需求，管理维护客户关系，定期拜访客户，及时了解行业变化，收集并反馈客户信息",
+          "与客户洽谈并初拟合同，或与合作公司代表签订经销协议",
+          "收集产品使用反馈信息，实证数据等。帮助客户协调所需服务支持，协助处理客户投诉等",
+          "参与和配合公司开展相关行业展会。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "技术服务岗",
+        "workLocation": "贵州省贵阳市",
+        "hotline": "15985116723（赵经理）",
+        "salary": "5000-9000/月",
+        "responsibilities": [
+          "根据市场需要，开展实证实验、牧场服务",
+          "根据已经制定方案，解决客户现场问题",
+          "配合业务经理了解客户情况并及时反馈",
+          "持续跟踪客户合作情况，掌握客户动态及产品使用效果",
+          "针对客户投诉，制定方案快速响应，完成服务",
+          "收集竞争对手资料、样品",
+          "了解竞争对手的客户价格及政策",
+          "协助业务经理开发市场或空白市场开发。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "品管经理",
+        "workLocation": "贵州省贵阳市",
+        "hotline": "13812907747（刘经理）",
+        "salary": "7000-10000/月",
+        "responsibilities": [
+          "负责公司全面品质管理体系的建立并监督实施",
+          "负责公司原料及成品质量管理工作",
+          " 协调解决客户投诉处理、退换货管理",
+          "负责化验室的管理和运行",
+          "处理外部相关事务，如生产许可证办理或换证等",
+          "饲料厂生物安全管理相关工作。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "现场品管",
+        "workLocation": "贵州省贵阳市",
+        "hotline": "15985116723（赵经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "保证进库原物料的品质合格，对进库原物料的品质进行监督",
+          "保证制成品的品质合格，每天对现场品管日报表核查，对生产现场进行\n巡查，发现问题及时解决",
+          "对制成品检验报告进行复核，对异常情况查找原因，并及时解决",
+          "定期对成品仓库巡查，发现问题及时提出解决方案",
+          "协调解决客户投诉处理",
+          "饲料厂生物安全管理相关工作。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华北",
+    "province": "甘肃",
+    "company": "兰州安佑",
+    "address": "甘肃省兰州市兰州新区秦川园区战略性新兴产业孵化基地811室",
+    "contact": "0931-6528666",
+    "email": "lanzhou-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售经理（猪料）",
+        "workLocation": "甘肃省兰州市",
+        "hotline": "18189668641（黎经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "市场信息收集和客户信息沟通，做好老客户维护及新客户开发工作",
+          "团队的组建与管理",
+          "树立品牌形象，分析竞争对手情况",
+          "制定合理的任务计划，带领团队有计划有目标完成",
+          "制定合理有效的市场活动，并组织推动;协助上级制定销售战略、销售计划和量化销售目标。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "驻场技术员",
+        "workLocation": "甘肃省兰州市",
+        "hotline": "18189668641（黎经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "驻场技术服务:协助客户养殖场进行养殖规范、疾病防控、疾病诊断、生物安全防控",
+          "按饲喂程序指导客户规范饲喂",
+          "维护客户关系，开展产品实证、打造客户标杆",
+          "做好猪场客户的管理，辅助提升客户猪场成绩（成活率，psy，料肉比等）定期向领导汇报猪场的情况。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华南",
+    "province": "广西",
+    "company": "广西安佑",
+    "address": "广西南宁市宾阳县黎塘镇工业集中区石鼓岭园区凤凰路西段南面",
+    "contact": "0771-5925298",
+    "email": "guangxi-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售经理（猪料）",
+        "workLocation": "广西南宁市",
+        "hotline": "18275754450（蒋经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "市场信息收集和客户信息沟通，做好老客户维护及新客户开发工作",
+          "团队的组建与管理",
+          "树立品牌形象，分析竞争对手情况",
+          "制定合理的任务计划，带领团队有计划有目标完成",
+          "制定合理有效的市场活动，并组织推动;协助上级制定销售战略、销售计划和量化销售目标。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "销售业务员（猪料）",
+        "workLocation": "广西南宁市",
+        "hotline": "18275754450（蒋经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责产品的市场渠道开拓与销售工作，执行并完成公司产品年度销售计划",
+          "根据公司市场营销战略，积极完成销量指标，扩大产品市场占有率",
+          "与客户保持良好沟通，实时把握客户需求，管理维护客户关系，定期拜访客户，及时了解行业变化，收集并反馈客户信息",
+          "与客户洽谈并初拟合同，或与合作公司代表签订经销协议",
+          "收集产品使用反馈信息，实证数据等。帮助客户协调所需服务支持，协助处理客户投诉等",
+          "参与和配合公司开展相关行业展会。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "技术服务岗",
+        "workLocation": "广西南宁市",
+        "hotline": "18275754450（蒋经理）",
+        "salary": "5000-9000/月",
+        "responsibilities": [
+          "根据市场需要，开展实证实验、牧场服务",
+          "根据已经制定方案，解决客户现场问题",
+          "配合业务经理了解客户情况并及时反馈",
+          "持续跟踪客户合作情况，掌握客户动态及产品使用效果",
+          "针对客户投诉，制定方案快速响应，完成服务",
+          "收集竞争对手资料、样品",
+          "了解竞争对手的客户价格及政策",
+          "协助业务经理开发市场或空白市场开发。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华南",
+    "province": "广东",
+    "company": "高州安佑",
+    "address": "广东省茂名市高州市金山街道高茂大道",
+    "contact": "0668-6139156",
+    "email": "gaozhou-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售经理（水产）",
+        "workLocation": "广东省茂名市高州市",
+        "hotline": "18038967635（何经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "市场信息收集和客户信息沟通，做好老客户维护及新客户开发工作",
+          "团队的组建与管理",
+          "树立品牌形象，分析竞争对手情况",
+          "制定合理的任务计划，带领团队有计划有目标完成",
+          "制定合理有效的市场活动，并组织推动;协助上级制定销售战略、销售计划和量化销售目标。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华北",
+    "province": "辽宁",
+    "company": "辽宁安佑",
+    "address": "辽宁省沈阳市法库县辽河经济区安佑路1号",
+    "contact": "024-87151028",
+    "email": "liaoning-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售经理（畜禽/水产）",
+        "workLocation": "辽宁省沈阳市",
+        "hotline": "15840542480（李经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "市场信息收集和客户信息沟通，做好老客户维护及新客户开发工作",
+          "团队的组建与管理",
+          "树立品牌形象，分析竞争对手情况",
+          "制定合理的任务计划，带领团队有计划有目标完成",
+          "制定合理有效的市场活动，并组织推动;协助上级制定销售战略、销售计划和量化销售目标。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "添加剂",
+    "province": "湖北",
+    "company": "山川生物",
+    "address": "湖北省武汉市东湖新技术开发区神墩一路199号办公楼（自贸区武汉片区）",
+    "contact": "027-81337778",
+    "email": "shanchuanhr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售经理（水产）",
+        "workLocation": "湖北省武汉市",
+        "hotline": "15527483963（江经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "市场信息收集和客户信息沟通，做好老客户维护及新客户开发工作",
+          "团队的组建与管理",
+          "树立品牌形象，分析竞争对手情况",
+          "制定合理的任务计划，带领团队有计划有目标完成",
+          "制定合理有效的市场活动，并组织推动;协助上级制定销售战略、销售计划和量化销售目标。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "海外销售经理",
+        "workLocation": "越南、泰国",
+        "hotline": "15527483963（江经理）",
+        "salary": "1-1.5w/月",
+        "responsibilities": [
+          "负责海外市场开发、拜访客户、商务谈判",
+          "负责海外客户关系管理，跟催货款回笼",
+          "负责海外区域内经销商的开发，协议签订，维护工作",
+          "负责市场调研，参与各大产品展示会",
+          "负责收集同行业市场信息，市场开发趋势的把握。"
+        ],
+        "requirements": [
+          "英语CET-6以上，口语优秀，可以无障碍和客户对接，本科以上学历",
+          "熟悉外贸操作流程，具备外贸领域专业及同行业工作经历者优先考虑",
+          "有海外实地市场开发经验优先",
+          "执行能力强，时间观念以及自我管控能力强",
+          ""
         ]
       },
       {
-        region: '华南',
-        province: '广东',
-        company: '广州分公司',
-        address: '广东省广州市天河区珠江新城冼村路28号富力中心32层',
-        contact: '020-87776666',
-        email: 'hr-guangzhou@xxgroup.com',
-        positions: [
-          {
-            name: '销售经理',
-            workLocation: '广州市天河区', // 工作地点属于岗位
-            hotline: '020-87776666-801', // 新增招聘热线字段
-            responsibilities: ['负责华南区域销售团队管理及销售目标达成'],
-            requirements: ['本科及以上学历，市场营销、工商管理等相关专业', '3年以上销售经验'],
-            salary: '15-22K/月 + 绩效奖金'
-          },
-          {
-            name: '市场专员',
-            workLocation: '广州市白云区', // 工作地点属于岗位
-            hotline: '020-87776666-802', // 新增招聘热线字段
-            responsibilities: ['负责区域市场调研和竞品分析', '策划和执行市场推广活动'],
-            requirements: ['本科及以上学历，市场营销、广告学等相关专业', '2年以上市场相关工作经验'],
-            salary: '8-12K/月 + 绩效奖金'
-          }
+        "name": "实证员",
+        "workLocation": "湖北省",
+        "hotline": "15527483963（江经理）",
+        "salary": "5000-6000/月",
+        "responsibilities": [
+          "学习公司产品，熟练掌握产品的用法用量",
+          "根据部门的安排和养殖场的情况，准确做好试验前的准备工作，如猪场选猪、试验料配料和试验方案的初步拟定等",
+          "熟悉猪群生长和生活习性，根据要求观察猪群的生长状态和健康状况，并做好完整准确的原始记录、数据整理",
+          "进行视频、试验照片拍摄",
+          "对试验结果进行分析，形成完整的实验报告及总结，并分析问题，提出建议等。"
+        ],
+        "requirements": [
+          "全日制大专以上学历，畜牧兽医、动物科学、动物医学、动物营养等相关专业，20~35，身体健康，无不不良嗜好",
+          "试验观察能力和记录分析能力强",
+          "具有一定的文字功底",
+          "沟通表达能力良好，责任心强，学习能力及执行力好",
+          "性格沉稳，能适应各地猪场、家禽养殖场出差试验等。"
         ]
       },
       {
-        region: '总部',
-        province: '江苏',
-        company: '集团总部',
-        address: '江苏省太仓市经济开发区北京东路88号集团大厦',
-        contact: '0512-53538888',
-        email: 'hr-headquarters@xxgroup.com',
-        positions: [
-          {
-            name: '战略规划经理',
-            workLocation: '太仓市经济开发区', // 工作地点属于岗位
-            hotline: '0512-53538888-801', // 新增招聘热线字段
-            responsibilities: ['负责集团中长期战略规划制定和实施', '分析行业发展趋势和市场竞争格局'],
-            requirements: ['硕士及以上学历，工商管理、战略管理等相关专业', '5年以上企业战略规划经验'],
-            salary: '25-40K/月 + 年终分红 + 股票期权'
-          }
+        "name": "宠物产品经理",
+        "workLocation": "湖北省",
+        "hotline": "15527483963（江经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "熟悉宠物市场以及消费者宠物需求",
+          "负责竞品收集和分析，客户需求，市场流行趋势调研",
+          "主导产品生命周期管理，负责产品从概念到研发、测试、推广和上市全过程",
+          "负责产品知识的培训，技术支持",
+          ""
+        ],
+        "requirements": [
+          "硕士以上学历，动物营养学/动物医学/食品工程专业优先",
+          "有宠物食品行业经验优先",
+          "能独立推动项目交付，有较强的沟通协调及独立解决问题的能力。"
         ]
       }
-    ];
+    ]
+  },
+  {
+    "region": "华北",
+    "province": "山西",
+    "company": "山西安佑",
+    "address": "山西省晋中市祁县经济开发区朝阳东街3号",
+    "contact": "0354-5527557",
+    "email": "jinzhong-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售业务员（猪料）",
+        "workLocation": "山西省晋中市",
+        "hotline": "15135414769（张经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责产品的市场渠道开拓与销售工作，执行并完成公司产品年度销售计划",
+          "根据公司市场营销战略，积极完成销量指标，扩大产品市场占有率",
+          "与客户保持良好沟通，实时把握客户需求，管理维护客户关系，定期拜访客户，及时了解行业变化，收集并反馈客户信息",
+          "与客户洽谈并初拟合同，或与合作公司代表签订经销协议",
+          "收集产品使用反馈信息，实证数据等。帮助客户协调所需服务支持，协助处理客户投诉等",
+          "参与和配合公司开展相关行业展会。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "驻场技术员",
+        "workLocation": "山西省晋中市",
+        "hotline": "15135414769（张经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "驻场技术服务:协助客户养殖场进行养殖规范、疾病防控、疾病诊断、生物安全防控",
+          "按饲喂程序指导客户规范饲喂",
+          "维护客户关系，开展产品实证、打造客户标杆",
+          "做好猪场客户的管理，辅助提升客户猪场成绩（成活率，psy，料肉比等）定期向领导汇报猪场的情况。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "湖北",
+    "company": "襄阳安佑",
+    "address": "湖北省襄阳市襄州区伙牌工业园01号",
+    "contact": "0710-2973456",
+    "email": "xiangyang-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售业务员（猪料）",
+        "workLocation": "湖北省襄阳市",
+        "hotline": "18672136664（何经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责产品的市场渠道开拓与销售工作，执行并完成公司产品年度销售计划",
+          "根据公司市场营销战略，积极完成销量指标，扩大产品市场占有率",
+          "与客户保持良好沟通，实时把握客户需求，管理维护客户关系，定期拜访客户，及时了解行业变化，收集并反馈客户信息",
+          "与客户洽谈并初拟合同，或与合作公司代表签订经销协议",
+          "收集产品使用反馈信息，实证数据等。帮助客户协调所需服务支持，协助处理客户投诉等",
+          "参与和配合公司开展相关行业展会。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "驻场技术员",
+        "workLocation": "湖北省襄阳市",
+        "hotline": "18672136664（何经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "驻场技术服务:协助客户养殖场进行养殖规范、疾病防控、疾病诊断、生物安全防控",
+          "按饲喂程序指导客户规范饲喂",
+          "维护客户关系，开展产品实证、打造客户标杆",
+          "做好猪场客户的管理，辅助提升客户猪场成绩（成活率，psy，料肉比等）定期向领导汇报猪场的情况。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "浙江",
+    "company": "浙江安佑",
+    "address": "浙江省龙游县东华街道龙游城南工业新城城南路33号",
+    "contact": "0570-8859509",
+    "email": "zhejiang-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售业务员（水产）",
+        "workLocation": "浙江省龙游县",
+        "hotline": "18057007601（杨经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责产品的市场渠道开拓与销售工作，执行并完成公司产品年度销售计划",
+          "根据公司市场营销战略，积极完成销量指标，扩大产品市场占有率",
+          "与客户保持良好沟通，实时把握客户需求，管理维护客户关系，定期拜访客户，及时了解行业变化，收集并反馈客户信息",
+          "与客户洽谈并初拟合同，或与合作公司代表签订经销协议",
+          "收集产品使用反馈信息，实证数据等。帮助客户协调所需服务支持，协助处理客户投诉等",
+          "参与和配合公司开展相关行业展会。"
+        ],
+        "requirements": []
+      },
+      {
+        "name": "驻场技术员",
+        "workLocation": "浙江省龙游县",
+        "hotline": "18057007601（杨经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "驻场技术服务:协助客户养殖场进行养殖规范、疾病防控、疾病诊断、生物安全防控",
+          "按饲喂程序指导客户规范饲喂",
+          "维护客户关系，开展产品实证、打造客户标杆",
+          "做好猪场客户的管理，辅助提升客户猪场成绩（成活率，psy，料肉比等）定期向领导汇报猪场的情况。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华南",
+    "province": "福建",
+    "company": "漳州日高",
+    "address": "福建省漳州市芗城区石亭镇鳌门村(石亭镇产业园内)",
+    "contact": "0596-2105468",
+    "email": "rigao-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售业务员（水产）",
+        "workLocation": "福建省漳州市",
+        "hotline": "19896682911（林经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责产品的市场渠道开拓与销售工作，执行并完成公司产品年度销售计划",
+          "根据公司市场营销战略，积极完成销量指标，扩大产品市场占有率",
+          "与客户保持良好沟通，实时把握客户需求，管理维护客户关系，定期拜访客户，及时了解行业变化，收集并反馈客户信息",
+          "与客户洽谈并初拟合同，或与合作公司代表签订经销协议",
+          "收集产品使用反馈信息，实证数据等。帮助客户协调所需服务支持，协助处理客户投诉等",
+          "参与和配合公司开展相关行业展会。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华北",
+    "province": "河南",
+    "company": "驻马店安佑",
+    "address": "河南省驻马店市汝南县产业集聚区",
+    "contact": "0396-3299101",
+    "email": "zhumadian-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "驻场技术员",
+        "workLocation": "河南省驻马店",
+        "hotline": "15138102523（李经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "驻场技术服务:协助客户养殖场进行养殖规范、疾病防控、疾病诊断、生物安全防控",
+          "按饲喂程序指导客户规范饲喂",
+          "维护客户关系，开展产品实证、打造客户标杆",
+          "做好猪场客户的管理，辅助提升客户猪场成绩（成活率，psy，料肉比等）定期向领导汇报猪场的情况。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "湖北",
+    "company": "武汉安佑",
+    "address": "武汉市江夏区金口街长山村",
+    "contact": "027-81776336",
+    "email": 0,
+    "positions": [
+      {
+        "name": "驻场技术员",
+        "workLocation": "武汉市江夏区",
+        "hotline": "18971397239（李经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "驻场技术服务:协助客户养殖场进行养殖规范、疾病防控、疾病诊断、生物安全防控",
+          "按饲喂程序指导客户规范饲喂",
+          "维护客户关系，开展产品实证、打造客户标杆",
+          "做好猪场客户的管理，辅助提升客户猪场成绩（成活率，psy，料肉比等）定期向领导汇报猪场的情况。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "重庆",
+    "company": "重庆安佑",
+    "address": "重庆市荣昌区荣隆台湾工业园区",
+    "contact": "028-85737865",
+    "email": "chongqing-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "现场品管",
+        "workLocation": "重庆市荣昌区",
+        "hotline": "13778533083（李经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "保证进库原物料的品质合格，对进库原物料的品质进行监督",
+          "保证制成品的品质合格，每天对现场品管日报表核查，对生产现场进行\n巡查，发现问题及时解决",
+          "对制成品检验报告进行复核，对异常情况查找原因，并及时解决",
+          "定期对成品仓库巡查，发现问题及时提出解决方案",
+          "协调解决客户投诉处理",
+          "饲料厂生物安全管理相关工作。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "江苏",
+    "company": "南通安佑",
+    "address": "江苏省南通市如皋市如城街道如港路86号211室（经营场所：江苏省南通市如皋市如城街道中山西路609号",
+    "contact": "0513-87989199",
+    "email": "nantong-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "现场品管",
+        "workLocation": "江苏省南通市如皋市",
+        "hotline": "15962704108（徐经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "保证进库原物料的品质合格，对进库原物料的品质进行监督",
+          "保证制成品的品质合格，每天对现场品管日报表核查，对生产现场进行\n巡查，发现问题及时解决",
+          "对制成品检验报告进行复核，对异常情况查找原因，并及时解决",
+          "定期对成品仓库巡查，发现问题及时提出解决方案",
+          "协调解决客户投诉处理",
+          "饲料厂生物安全管理相关工作。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "湖北",
+    "company": "荆州安佑",
+    "address": "湖北省荆州市观音垱工业园主干道3号",
+    "contact": "0716-8471140",
+    "email": "yichang-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "化验员",
+        "workLocation": "湖北省荆州市",
+        "hotline": "15926636325（王经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责按照公司《原料、成品检测频率表》及时准确的完成各项检验工作",
+          "负责实验室各项记录、档案的管理，检测报告的出具",
+          "负责化验室试剂的配置及管理",
+          "负责实验室仪器、器皿、药品的使用、保管和保养。"
+        ],
+        "requirements": []
+      }
+    ]
+  },
+  {
+    "region": "华中",
+    "province": "安徽",
+    "company": "安徽安佑",
+    "address": "安徽省寿县新桥国际产业园创业大道",
+    "contact": "0554-4990275",
+    "email": "anhui-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "化验员",
+        "workLocation": "安徽省寿县",
+        "hotline": "18656558310（张经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责按照公司《原料、成品检测频率表》及时准确的完成各项检验工作",
+          "负责实验室各项记录、档案的管理，检测报告的出具",
+          "负责化验室试剂的配置及管理",
+          "负责实验室仪器、器皿、药品的使用、保管和保养。"
+        ],
+        "requirements": []
+      }
+    ]
+  }
+];
 
     // 全局变量
     let myChart = null;
@@ -708,6 +2331,8 @@
     let isAdminLoggedIn = false;
     let currentEditingCompanyIndex = -1; // -1表示新增，>=0表示编辑
     let searchResults = []; // 存储搜索结果
+    let successTimer = null;
+    let errorTimer = null;
 
     // 页面加载完成后初始化
     document.addEventListener('DOMContentLoaded', function() {
@@ -722,35 +2347,13 @@
       showHeadquartersMarker();
     }
 
-    // 初始化地图
+    // 初始化地图 - 修改为使用本地地图数据
     async function initMap() {
       myChart = echarts.init(document.getElementById('map-container'));
       
       try {
-        // 加载中国地图数据
-        const response = await fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json');
-        const chinaJson = await response.json();
-        
-        // 修改省份名称显示格式
-        chinaJson.features.forEach(feature => {
-          const name = feature.properties.name;
-          // 简化省份名称显示
-          if (name.includes('新疆')) {
-            feature.properties.name = '新疆';
-          } else if (name.includes('宁夏')) {
-            feature.properties.name = '宁夏';
-          } else if (name.includes('香港')) {
-            feature.properties.name = '香港';
-          } else if (name.includes('澳门')) {
-            feature.properties.name = '澳门';
-          } else if (name.includes('广西')) {
-            feature.properties.name = '广西';
-          } else if (name.endsWith('省') || name.endsWith('市') || name.endsWith('自治区')) {
-            feature.properties.name = name.replace(/(省|市|自治区)$/, '');
-          }
-        });
-        
-        echarts.registerMap('china', chinaJson);
+        // 使用本地注册的地图数据
+        // 假设china.js已经通过echarts.registerMap注册了名为'china'的地图
         
         // 配置地图选项 - 优化字体大小自适应
         const containerWidth = document.getElementById('map-container').offsetWidth;
@@ -782,7 +2385,7 @@
             {
               name: '招聘区域',
               type: 'map',
-              map: 'china',
+              map: 'china',  // 使用本地注册的地图名称
               roam: true,
               scaleLimit: {
                 min: 1.2,
@@ -815,49 +2418,12 @@
                 shadowColor: 'rgba(0,0,0,0.05)',
                 shadowBlur: 2
               },
-              data: getAllProvinceMapData()
-            },
-            // 添加总部标记系列
-            {
-              name: '总部标记',
-              type: 'effectScatter',
-              coordinateSystem: 'geo',
-              data: [
-                {
-                  name: '集团总部',
-                  value: [121.1, 31.45, '集团总部（江苏太仓）'], // 太仓的经纬度
-                  symbolSize: 15,
-                  itemStyle: {
-                    color: '#e53e3e',
-                    shadowBlur: 10,
-                    shadowColor: '#e53e3e'
-                  }
-                }
-              ],
-              symbol: 'circle',
-              symbolSize: function(val) {
-                return val[2] / 10;
-              },
-              showEffectOn: 'render',
-              rippleEffect: {
-                brushType: 'stroke',
-                scale: 3
-              },
-              hoverAnimation: true,
-              label: {
-                show: true,
-                position: 'top',
-                formatter: '{b}',
-                color: '#e53e3e',
-                fontWeight: 'bold',
-                fontSize: 12
-              },
-              itemStyle: {
-                color: '#e53e3e',
-                shadowBlur: 10,
-                shadowColor: '#e53e3e'
-              },
-              zlevel: 1
+              data: getAllProvinceMapData(),
+              nameMap: {
+                '台湾省': '台湾',
+                '香港特别行政区': '香港',
+                '澳门特别行政区': '澳门'
+              }
             }
           ]
         };
@@ -866,16 +2432,7 @@
         
         // 地图点击事件
         myChart.on('click', function(params) {
-          // 如果是总部标记，显示总部岗位列表
-          if (params.seriesName === '总部标记') {
-            const company = recruitData.find(item => item.region === '总部');
-            if (company) {
-              showPositionList(company);
-            }
-          } else {
-            // 普通省份点击
-            showCompanyList(params.name);
-          }
+          showCompanyList(params.name);
         });
         
         // 窗口大小变化时调整地图大小和字体
@@ -897,6 +2454,10 @@
               }
             }]
           });
+          
+          if (document.getElementById('headquarters-marker') && !document.getElementById('headquarters-marker').classList.contains('hidden')) {
+            positionHeadquartersMarker();
+          }
         });
         
       } catch (error) {
@@ -1026,10 +2587,12 @@
       });
       
       document.getElementById('close-success-modal').addEventListener('click', function() {
+        clearTimeout(successTimer);
         document.getElementById('success-modal').classList.add('hidden');
       });
       
       document.getElementById('close-error-modal').addEventListener('click', function() {
+        clearTimeout(errorTimer);
         document.getElementById('error-modal').classList.add('hidden');
       });
 
@@ -1048,10 +2611,13 @@
         }
       });
 
-      // Excel上传相关事件 - 修复数据更新问题
+      // Excel上传相关事件 - 修复按钮无响应问题
       document.getElementById('admin-excel-upload').addEventListener('change', handleExcelUpload);
       document.getElementById('upload-excel-btn').addEventListener('click', handleManualUpload);
       document.getElementById('export-excel-btn').addEventListener('click', exportExcelData);
+      
+      // 新增导出HTML按钮事件
+      document.getElementById('export-html-btn').addEventListener('click', exportHtmlFile);
 
       // 退出登录
       document.getElementById('logout-btn').addEventListener('click', function() {
@@ -1063,8 +2629,13 @@
         showSuccess('已退出管理员登录');
       });
 
-      // 帮助按钮
+      // 帮助按钮 - PC端
       document.getElementById('help-btn').addEventListener('click', function() {
+        document.getElementById('help-modal').classList.remove('hidden');
+      });
+
+      // 帮助按钮 - 移动端
+      document.getElementById('help-btn-mobile').addEventListener('click', function() {
         document.getElementById('help-modal').classList.remove('hidden');
       });
 
@@ -1710,7 +3281,8 @@
 
     // 显示总部标记点
     function showHeadquartersMarker() {
-      // 这个函数现在不需要了，因为总部标记已经通过ECharts系列添加
+      // 这里应该有显示总部标记的代码
+      console.log('显示总部标记');
     }
 
     // 更新统计数据
@@ -1766,13 +3338,35 @@
     }
 
     function showSuccess(message) {
+      // 清除之前的定时器
+      if (successTimer) {
+        clearTimeout(successTimer);
+      }
+      
       document.getElementById('success-message').textContent = message;
       document.getElementById('success-modal').classList.remove('hidden');
+      
+      // 3秒后自动关闭
+      successTimer = setTimeout(() => {
+        document.getElementById('success-modal').classList.add('hidden');
+        successTimer = null;
+      }, 3000);
     }
 
     function showError(message) {
+      // 清除之前的定时器
+      if (errorTimer) {
+        clearTimeout(errorTimer);
+      }
+      
       document.getElementById('error-message').textContent = message;
       document.getElementById('error-modal').classList.remove('hidden');
+      
+      // 3秒后自动关闭
+      errorTimer = setTimeout(() => {
+        document.getElementById('error-modal').classList.add('hidden');
+        errorTimer = null;
+      }, 3000);
     }
 
     // Excel上传相关函数 - 修复数据更新问题
@@ -1918,7 +3512,7 @@
       XLSX.utils.book_append_sheet(wb, ws, '招聘数据');
       
       // 生成Excel文件并下载
-      XLSX.writeFile(wb, 'XX集团招聘数据.xlsx');
+      XLSX.writeFile(wb, '安佑集团招聘数据.xlsx');
       
       // 隐藏加载提示
       setTimeout(() => {
@@ -1926,6 +3520,92 @@
         showSuccess('Excel数据已成功导出');
       }, 1000);
     }
+
+    // 新增：导出HTML文件功能
+    function exportHtmlFile() {
+      document.getElementById('upload-loading').classList.remove('hidden');
+      
+      try {
+        // 获取当前HTML内容
+        const htmlContent = document.documentElement.outerHTML;
+        
+        // 创建当前数据的副本，确保数据是最新的
+        const currentRecruitData = JSON.parse(JSON.stringify(recruitData));
+        
+        // 创建一个临时的HTML文档，用于处理数据
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlContent;
+        
+        // 找到包含recruitData的script标签
+        const scripts = tempDiv.querySelectorAll('script');
+        let found = false;
+        
+        for (let i = 0; i < scripts.length; i++) {
+          const script = scripts[i];
+          if (script.textContent.includes('let recruitData = [')) {
+            // 替换recruitData为当前数据
+            const newScriptContent = script.textContent.replace(
+              /let recruitData = \[[\s\S]*?\];/,
+              `let recruitData = ${JSON.stringify(currentRecruitData, null, 2)};`
+            );
+            script.textContent = newScriptContent;
+            found = true;
+            break;
+          }
+        }
+        
+        // 如果没找到，在最后一个script标签前插入新的script标签
+        if (!found) {
+          const lastScript = tempDiv.querySelector('script:last-of-type');
+          const newScript = document.createElement('script');
+          newScript.textContent = `let recruitData = ${JSON.stringify(currentRecruitData, null, 2)};`;
+          lastScript.parentNode.insertBefore(newScript, lastScript);
+        }
+        
+        // 确保所有弹窗在导出的HTML中是隐藏的
+        const modals = tempDiv.querySelectorAll('[id$="-modal"], #upload-loading');
+        modals.forEach(modal => {
+          modal.classList.add('hidden');
+        });
+        
+        // 确保管理员登录状态为未登录
+        const adminLoginBtn = tempDiv.querySelector('#admin-login-btn');
+        if (adminLoginBtn) {
+          adminLoginBtn.classList.remove('bg-admin', 'text-white');
+          adminLoginBtn.classList.add('bg-gray-200', 'text-gray-700');
+          adminLoginBtn.innerHTML = '<i class="fa fa-user-secret mr-2"></i>管理员登录';
+        }
+        
+        // 获取处理后的HTML内容
+        const updatedHtml = tempDiv.innerHTML;
+        
+        // 创建Blob对象
+        const blob = new Blob([updatedHtml], { type: 'text/html' });
+        
+        // 创建下载链接
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '安佑集团招聘地图_数据更新版.html';
+        
+        // 触发下载
+        document.body.appendChild(a);
+        a.click();
+        
+        // 清理
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          document.getElementById('upload-loading').classList.add('hidden');
+          showSuccess('HTML文件已成功导出，包含最新招聘数据');
+        }, 100);
+        
+      } catch (error) {
+        console.error('导出HTML文件失败:', error);
+        document.getElementById('upload-loading').classList.add('hidden');
+        showError('HTML文件导出失败，请重试');
+      }
+    }
   </script>
-</body>
-</html>
+
+<div id="qihooai-assistant-root"></div><div id="shadow-root-ai-zhishiku"></div><div id="ai-assist-root-bangs"></div><div id="imt-webext"></div><div id="ai-assist-root-new"></div>
