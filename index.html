@@ -2990,9 +2990,26 @@
         
         myChart.setOption(option);
         
-        // 地图点击事件
+        // 地图点击事件 - 修复移动端点击省份直接进入岗位列表的问题
         myChart.on('click', function(params) {
-          showCompanyList(params.name);
+          // 确保点击的是有效的省份，并且有子公司数据
+          if (params.componentType === 'series' && 
+              params.componentSubType === 'map' && 
+              params.name && 
+              allProvinces.includes(params.name)) {
+            
+            const provinceData = getProvinceData(params.name);
+            
+            // 只有在有子公司数据时才显示子公司列表
+            if (provinceData.companies.length > 0) {
+              console.log('显示子公司列表:', params.name); // 调试信息
+              showCompanyList(params.name);
+            } else {
+              console.log('该省份暂无子公司:', params.name); // 调试信息
+              // 如果没有子公司，可以显示提示信息或什么都不做
+              showError(`${params.name}暂无招聘信息`);
+            }
+          }
         });
         
         // 窗口大小变化时调整地图大小和字体
