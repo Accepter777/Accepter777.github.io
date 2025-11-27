@@ -123,11 +123,9 @@
       .btn-secondary {
         @apply px-3 py-1 bg-gray-200 text-gray-700 rounded text-sm hover:bg-gray-300 transition-colors;
       }
-      .mobile-click-protection {
-        pointer-events: none;
-      }
-      .mobile-click-enabled {
-        pointer-events: auto;
+      /* 添加点击保护层样式 */
+      .click-protection {
+        @apply absolute inset-0 z-10;
       }
     }
   </style>
@@ -147,7 +145,7 @@
           transform: scale(1.5);
           opacity: 0;
         }
-      }.admin-table th{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1));padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;text-align:left;font-size:0.75rem;line-height:1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.admin-table td{white-space:nowrap;padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.btn-primary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-primary:hover{background-color:rgb(79 70 229 / 0.9)}.btn-success{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-success:hover{background-color:rgb(16 185 129 / 0.9)}.btn-warning{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-warning:hover{background-color:rgb(245 158 11 / 0.9)}.btn-danger{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-danger:hover{background-color:rgb(239 68 68 / 0.9)}.btn-secondary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-secondary:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity, 1))}
+      }.admin-table th{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1));padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;text-align:left;font-size:0.75rem;line-height:1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.admin-table td{white-space:nowrap;padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.btn-primary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-primary:hover{background-color:rgb(79 70 229 / 0.9)}.btn-success{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-success:hover{background-color:rgb(16 185 129 / 0.9)}.btn-warning{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-warning:hover{background-color:rgb(245 158 11 / 0.9)}.btn-danger{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-danger:hover{background-color:rgb(239 68 68 / 0.9)}.btn-secondary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-secondary:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity, 1))}/* 添加点击保护层样式 */
     .hover\:bg-admin\/20:hover{background-color:rgb(79 70 229 / 0.2)}
     .hover\:bg-admin\/90:hover{background-color:rgb(79 70 229 / 0.9)}
     .hover\:bg-danger\/90:hover{background-color:rgb(239 68 68 / 0.9)}
@@ -334,10 +332,8 @@
   <main class="container mx-auto px-4 py-6">
     <!-- 地图展示区域 -->
     <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
-      <div id="map-container" class="w-full h-[400px] md:h-[600px] border border-gray-200 rounded-lg relative" _echarts_instance_="ec_1764222548583" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;"><div style="position: relative; width: 1454px; height: 598px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1817" height="747" style="position: absolute; left: 0px; top: 0px; width: 1454px; height: 598px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(1048px, 146px, 0px); border-color: rgb(84, 112, 198); pointer-events: none; visibility: hidden; opacity: 0;"><div class="font-bold">黑龙江</div>
-                        <div>子公司数量: 1 家</div>
-                        <div>招聘岗位: 1 个</div>
-                        <div class="text-gray-500 text-sm">点击查看详情</div></div></div>
+      <div id="map-container" class="w-full h-[400px] md:h-[600px] border border-gray-200 rounded-lg relative" _echarts_instance_="ec_1764225631551" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;"><div style="position: relative; width: 1454px; height: 598px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1817" height="747" style="position: absolute; left: 0px; top: 0px; width: 1454px; height: 598px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(1051px, 211px, 0px); border-color: rgb(84, 112, 198); pointer-events: none; visibility: hidden; opacity: 0;"><div class="font-bold">吉林</div>
+                        <div class="text-gray-500">暂无招聘信息</div></div></div>
     </div>
   </main>
 
@@ -1017,21 +1013,21 @@
   <div id="province-companies-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-        <h3 id="province-companies-title" class="text-base md:text-lg font-semibold text-gray-800">黑龙江 - 子公司列表</h3>
+        <h3 id="province-companies-title" class="text-base md:text-lg font-semibold text-gray-800">江苏 - 子公司列表</h3>
         <button id="close-province-companies" class="text-gray-500 hover:text-gray-700 transition-colors">
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
-      <div id="province-companies-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="26">
+      <div id="province-companies-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors relative" data-company-index="2">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
               <div>
-                <h5 class="font-semibold text-gray-800 text-sm md:text-base">黑龙江安佑</h5>
-                <p class="text-sm text-gray-600 mt-1">黑龙江省兰西县工业示范基地</p>
-                <p class="text-xs text-gray-500 mt-2">联系电话: 0455-5317618</p>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">集团总部</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省太仓市经济开发区北京东路88号集团大厦</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0512-53538888</p>
               </div>
               <div class="text-left md:text-right mt-2 md:mt-0">
                 <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">1 个岗位</span>
-                <p class="text-xs text-gray-500 mt-1">华北</p>
+                <p class="text-xs text-gray-500 mt-1">总部</p>
               </div>
             </div>
           </div></div></div>
@@ -1047,17 +1043,17 @@
   <div id="company-positions-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-        <h3 id="company-positions-title" class="text-base md:text-lg font-semibold text-gray-800">黑龙江安佑 - 招聘岗位</h3>
+        <h3 id="company-positions-title" class="text-base md:text-lg font-semibold text-gray-800">集团总部 - 招聘岗位</h3>
         <button id="close-company-positions" class="text-gray-500 hover:text-gray-700 transition-colors">
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
-      <div id="company-positions-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="0">
+      <div id="company-positions-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors relative" data-position-index="0">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
               <div>
-                <h5 class="font-semibold text-gray-800 text-sm md:text-base">锅炉工</h5>
-                <p class="text-sm text-gray-600 mt-1">工作地点: 黑龙江省兰西县</p>
-                <p class="text-sm text-warning mt-1">薪资: 面议</p>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">战略规划经理</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 太仓市经济开发区</p>
+                <p class="text-sm text-warning mt-1">薪资: 25-40K/月 + 年终分红 + 股票期权</p>
               </div>
               <div class="text-left md:text-right mt-2 md:mt-0">
                 <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
@@ -1079,7 +1075,7 @@
   <div id="position-detail-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-        <h3 id="position-detail-title" class="text-base md:text-lg font-semibold text-gray-800">锅炉工</h3>
+        <h3 id="position-detail-title" class="text-base md:text-lg font-semibold text-gray-800">战略规划经理</h3>
         <button id="close-position-detail" class="text-gray-500 hover:text-gray-700 transition-colors">
           <i class="fa fa-times text-xl"></i>
         </button>
@@ -1092,19 +1088,19 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <div class="bg-white p-3 rounded-lg shadow-sm">
               <p class="text-xs text-gray-500 mb-1">公司名称</p>
-              <p class="font-medium text-gray-800 text-sm md:text-base">黑龙江安佑</p>
+              <p class="font-medium text-gray-800 text-sm md:text-base">集团总部</p>
             </div>
             <div class="bg-white p-3 rounded-lg shadow-sm">
               <p class="text-xs text-gray-500 mb-1">工作地点</p>
-              <p class="font-medium text-gray-800 text-sm md:text-base">黑龙江省兰西县</p>
+              <p class="font-medium text-gray-800 text-sm md:text-base">太仓市经济开发区</p>
             </div>
             <div class="bg-white p-3 rounded-lg shadow-sm">
               <p class="text-xs text-gray-500 mb-1">薪资待遇</p>
-              <p class="font-medium text-warning text-sm md:text-base">面议</p>
+              <p class="font-medium text-warning text-sm md:text-base">25-40K/月 + 年终分红 + 股票期权</p>
             </div>
             <div class="bg-white p-3 rounded-lg shadow-sm">
               <p class="text-xs text-gray-500 mb-1">招聘热线</p>
-              <p class="font-medium text-gray-800 text-sm md:text-base">18345069898（张经理）</p>
+              <p class="font-medium text-gray-800 text-sm md:text-base">0512-53538888-801</p>
             </div>
           </div>
         </div>
@@ -1117,32 +1113,12 @@
             
               <li class="flex items-start text-gray-700 text-sm md:text-base">
                 <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
-                <span>严格执行操作规程，安全、高效地操作和维护锅炉系统</span>
+                <span>负责集团中长期战略规划制定和实施</span>
               </li>
             
               <li class="flex items-start text-gray-700 text-sm md:text-base">
                 <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
-                <span>负责锅炉及其附属设备的日常巡检、保养和简单故障排除</span>
-              </li>
-            
-              <li class="flex items-start text-gray-700 text-sm md:text-base">
-                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
-                <span>按时、准确地记录锅炉运行参数（压力、温度、水位等），确保数据真实有效</span>
-              </li>
-            
-              <li class="flex items-start text-gray-700 text-sm md:text-base">
-                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
-                <span>做好水质管理和软化水处理，定期进行排污，防止结垢和腐蚀</span>
-              </li>
-            
-              <li class="flex items-start text-gray-700 text-sm md:text-base">
-                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
-                <span>保持锅炉房内环境整洁，工具、物品定置摆放，做好防火防盗工作</span>
-              </li>
-            
-              <li class="flex items-start text-gray-700 text-sm md:text-base">
-                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
-                <span>完成领导交办的其他相关工作。</span>
+                <span>分析行业发展趋势和市场竞争格局</span>
               </li>
             
           </ul>
@@ -1156,27 +1132,12 @@
             
               <li class="flex items-start text-gray-700 text-sm md:text-base">
                 <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
-                <span>持有效的司炉工操作证（特种设备作业人员证）</span>
+                <span>硕士及以上学历，工商管理、战略管理等相关专业</span>
               </li>
             
               <li class="flex items-start text-gray-700 text-sm md:text-base">
                 <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
-                <span>熟悉锅炉结构及工作原理，能独立操作和进行日常维护</span>
-              </li>
-            
-              <li class="flex items-start text-gray-700 text-sm md:text-base">
-                <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
-                <span>责任心强，安全意识高，能严格遵守各项安全制度和操作规程</span>
-              </li>
-            
-              <li class="flex items-start text-gray-700 text-sm md:text-base">
-                <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
-                <span>具备良好的团队协作精神，身体健康，能适应倒班工作</span>
-              </li>
-            
-              <li class="flex items-start text-gray-700 text-sm md:text-base">
-                <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
-                <span>有饲料厂或相关行业工作经验者优先。</span>
+                <span>5年以上企业战略规划经验</span>
               </li>
             
           </ul>
@@ -1187,10 +1148,10 @@
             <i class="fa fa-paper-plane text-green-600 mr-2"></i>我要投递
           </h4>
           <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
-            <a href="tel:18345069898（张经理）" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
+            <a href="tel:0512-53538888-801" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
               <i class="fa fa-phone mr-2"></i>电话咨询
             </a>
-            <a href="mailto:heilongjiang-hr@anschina.cn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
+            <a href="mailto:hr-headquarters@xxgroup.com" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
               <i class="fa fa-envelope mr-2"></i>邮箱投递
             </a>
           </div>
@@ -1214,20 +1175,20 @@
         <i class="fa fa-check"></i>
       </div>
       <h3 class="text-base md:text-lg font-semibold text-gray-800 mb-2">操作成功</h3>
-      <p id="success-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">HTML文件已成功导出，包含最新招聘数据</p>
+      <p id="success-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Excel文件已成功上传并更新数据</p>
       <button id="close-success-modal" class="px-4 md:px-6 py-2 bg-admin text-white rounded-lg hover:bg-admin/90 transition-colors text-sm md:text-base hidden">
         确定
       </button>
     </div>
   </div>
 
-  <div id="error-modal" class="fixed inset-0 bg-black/50 z-[1000] flex items-center justify-center p-2 md:p-4 hidden">
+  <div id="error-modal" class="fixed inset-0 bg-black/50 z-[1000] hidden flex items-center justify-center p-2 md:p-4">
     <div class="bg-white rounded-xl w-full max-w-md p-4 md:p-6 text-center modal-transition">
       <div class="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-red-100 text-red-500 text-xl md:text-2xl mb-3 md:mb-4">
         <i class="fa fa-exclamation-triangle"></i>
       </div>
       <h3 class="text-base md:text-lg font-semibold text-gray-800 mb-2">操作失败</h3>
-      <p id="error-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">请先选择Excel文件</p>
+      <p id="error-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">请检查文件格式是否正确</p>
       <button id="close-error-modal" class="px-4 md:px-6 py-2 bg-danger text-white rounded-lg hover:bg-danger/90 transition-colors text-sm md:text-base hidden">
         确定
       </button>
@@ -2925,7 +2886,6 @@
     let searchResults = []; // 存储搜索结果
     let successTimer = null;
     let errorTimer = null;
-    let isMobile = window.innerWidth < 768; // 判断是否为移动端
 
     // 页面加载完成后初始化
     document.addEventListener('DOMContentLoaded', function() {
@@ -3035,7 +2995,6 @@
           // 重新计算字体大小
           const containerWidth = document.getElementById('map-container').offsetWidth;
           const newFontSize = containerWidth < 768 ? 8 : 10;
-          isMobile = window.innerWidth < 768;
           
           // 更新地图选项中的字体大小
           myChart.setOption({
@@ -3571,7 +3530,7 @@
       modal.classList.remove('hidden');
     }
 
-    // 显示子公司列表 - 修复移动端跳级问题
+    // 显示子公司列表
     function showCompanyList(provinceName) {
       currentProvince = provinceName;
       const provinceData = getProvinceData(provinceName);
@@ -3596,8 +3555,13 @@
         
         provinceData.companies.forEach(company => {
           const companyCard = document.createElement('div');
-          companyCard.className = 'bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors';
+          companyCard.className = 'bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors relative';
           companyCard.setAttribute('data-company-index', recruitData.indexOf(company));
+          
+          // 添加点击保护层
+          const clickProtection = document.createElement('div');
+          clickProtection.className = 'click-protection';
+          companyCard.appendChild(clickProtection);
           
           companyCard.innerHTML = `
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
@@ -3613,16 +3577,15 @@
             </div>
           `;
           
-          // 使用防抖点击事件，避免移动端误触
-          companyCard.addEventListener('click', function() {
-            // 如果是移动端，检查是否在保护期内
-            if (isMobile && content.classList.contains('mobile-click-protection')) {
-              return;
-            }
-            
+          // 使用一次性事件监听器，防止重复绑定
+          const clickHandler = function() {
             modal.classList.add('hidden');
             showPositionList(company);
-          });
+            // 移除事件监听器，防止重复触发
+            companyCard.removeEventListener('click', clickHandler);
+          };
+          
+          companyCard.addEventListener('click', clickHandler);
           
           companiesList.appendChild(companyCard);
         });
@@ -3631,18 +3594,9 @@
       }
       
       modal.classList.remove('hidden');
-      
-      // 移动端保护：更长时间禁用点击，防止跳级
-      if (isMobile) {
-        content.classList.add('mobile-click-protection');
-        setTimeout(() => {
-          content.classList.remove('mobile-click-protection');
-          content.classList.add('mobile-click-enabled');
-        }, 500); // 延长保护时间到500毫秒
-      }
     }
 
-    // 显示岗位列表 - 修复移动端跳级问题
+    // 显示岗位列表
     function showPositionList(company) {
       currentCompany = company;
       
@@ -3666,8 +3620,13 @@
         
         company.positions.forEach((position, index) => {
           const positionCard = document.createElement('div');
-          positionCard.className = 'bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors';
+          positionCard.className = 'bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors relative';
           positionCard.setAttribute('data-position-index', index);
+          
+          // 添加点击保护层
+          const clickProtection = document.createElement('div');
+          clickProtection.className = 'click-protection';
+          positionCard.appendChild(clickProtection);
           
           positionCard.innerHTML = `
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
@@ -3682,16 +3641,15 @@
             </div>
           `;
           
-          // 使用防抖点击事件，避免移动端误触
-          positionCard.addEventListener('click', function() {
-            // 如果是移动端，检查是否在保护期内
-            if (isMobile && content.classList.contains('mobile-click-protection')) {
-              return;
-            }
-            
+          // 使用一次性事件监听器，防止重复绑定
+          const clickHandler = function() {
             modal.classList.add('hidden');
             showPositionDetail(position, company);
-          });
+            // 移除事件监听器，防止重复触发
+            positionCard.removeEventListener('click', clickHandler);
+          };
+          
+          positionCard.addEventListener('click', clickHandler);
           
           positionsList.appendChild(positionCard);
         });
@@ -3700,15 +3658,6 @@
       }
       
       modal.classList.remove('hidden');
-      
-      // 移动端保护：更长时间禁用点击，防止跳级
-      if (isMobile) {
-        content.classList.add('mobile-click-protection');
-        setTimeout(() => {
-          content.classList.remove('mobile-click-protection');
-          content.classList.add('mobile-click-enabled');
-        }, 500); // 延长保护时间到500毫秒
-      }
     }
 
     // 显示岗位详情
