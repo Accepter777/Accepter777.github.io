@@ -127,6 +127,10 @@
       .click-protection {
         @apply absolute inset-0 z-10;
       }
+      /* 添加临时禁用点击的样式 */
+      .temp-disabled {
+        @apply pointer-events-none;
+      }
     }
   </style>
 <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-top-16{top:-4rem}.left-1\/2{left:50%}.left-3{left:0.75rem}.top-0{top:0px}.top-3{top:0.75rem}.z-50{z-index:50}.z-\[1000\]{z-index:1000}.z-\[999\]{z-index:999}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-3{margin-top:0.75rem}.mt-2{margin-top:0.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-\[400px\]{height:400px}.h-3{height:0.75rem}.max-h-\[80vh\]{max-height:80vh}.max-h-\[90vh\]{max-height:90vh}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-full{width:100%}.w-3{width:0.75rem}.min-w-full{min-width:100%}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-gray-200 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(229 231 235 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-dashed{border-style:dashed}.border-admin{--tw-border-opacity:1;border-color:rgb(79 70 229 / var(--tw-border-opacity, 1))}.border-admin\/30{border-color:rgb(79 70 229 / 0.3)}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-green-200{--tw-border-opacity:1;border-color:rgb(187 247 208 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.border-blue-100{--tw-border-opacity:1;border-color:rgb(219 234 254 / var(--tw-border-opacity, 1))}.border-green-100{--tw-border-opacity:1;border-color:rgb(220 252 231 / var(--tw-border-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-admin{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-admin\/10{background-color:rgb(79 70 229 / 0.1)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-danger{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(66 153 225 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-success{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-warning{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-headquarters{--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1))}.bg-north{--tw-bg-opacity:1;background-color:rgb(159 122 234 / var(--tw-bg-opacity, 1))}.bg-south{--tw-bg-opacity:1;background-color:rgb(56 178 172 / var(--tw-bg-opacity, 1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-additive{--tw-bg-opacity:1;background-color:rgb(237 137 54 / var(--tw-bg-opacity, 1))}.bg-central{--tw-bg-opacity:1;background-color:rgb(66 153 225 / var(--tw-bg-opacity, 1))}.bg-premix{--tw-bg-opacity:1;background-color:rgb(140 97 60 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-50{--tw-gradient-from:#eff6ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(239 246 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-50{--tw-gradient-from:#f0fdf4 var(--tw-gradient-from-position);--tw-gradient-to:rgb(240 253 244 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-indigo-50{--tw-gradient-to:#eef2ff var(--tw-gradient-to-position)}.to-teal-50{--tw-gradient-to:#f0fdfa var(--tw-gradient-to-position)}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.pl-10{padding-left:2.5rem}.pr-4{padding-right:1rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-admin{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-green-800{--tw-text-opacity:1;color:rgb(22 101 52 / var(--tw-text-opacity, 1))}.text-headquarters{--tw-text-opacity:1;color:rgb(229 62 62 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(66 153 225 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-success{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-warning{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}.modal-transition{animation:fadeIn 0.3s ease-in-out}.headquarters-dot{position:relative;height:1.25rem;width:1.25rem}@keyframes pulse{50%{opacity:.5}0%, 100%{transform:scale(1);opacity:1}75%, 100%{transform:scale(1.5);opacity:0}}.headquarters-dot{animation:pulse 2s infinite;cursor:pointer;border-radius:9999px;border-width:2px;--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1));--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.headquarters-dot::after {
@@ -145,7 +149,7 @@
           transform: scale(1.5);
           opacity: 0;
         }
-      }.admin-table th{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1));padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;text-align:left;font-size:0.75rem;line-height:1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.admin-table td{white-space:nowrap;padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.btn-primary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-primary:hover{background-color:rgb(79 70 229 / 0.9)}.btn-success{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-success:hover{background-color:rgb(16 185 129 / 0.9)}.btn-warning{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-warning:hover{background-color:rgb(245 158 11 / 0.9)}.btn-danger{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-danger:hover{background-color:rgb(239 68 68 / 0.9)}.btn-secondary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-secondary:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity, 1))}/* 添加点击保护层样式 */
+      }.admin-table th{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1));padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;text-align:left;font-size:0.75rem;line-height:1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.admin-table td{white-space:nowrap;padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:0.75rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.btn-primary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-primary:hover{background-color:rgb(79 70 229 / 0.9)}.btn-success{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-success:hover{background-color:rgb(16 185 129 / 0.9)}.btn-warning{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-warning:hover{background-color:rgb(245 158 11 / 0.9)}.btn-danger{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-danger:hover{background-color:rgb(239 68 68 / 0.9)}.btn-secondary{border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1));padding-left:0.75rem;padding-right:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.btn-secondary:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity, 1))}/* 添加点击保护层样式 *//* 添加临时禁用点击的样式 */
     .hover\:bg-admin\/20:hover{background-color:rgb(79 70 229 / 0.2)}
     .hover\:bg-admin\/90:hover{background-color:rgb(79 70 229 / 0.9)}
     .hover\:bg-danger\/90:hover{background-color:rgb(239 68 68 / 0.9)}
@@ -332,7 +336,7 @@
   <main class="container mx-auto px-4 py-6">
     <!-- 地图展示区域 -->
     <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
-      <div id="map-container" class="w-full h-[400px] md:h-[600px] border border-gray-200 rounded-lg relative" _echarts_instance_="ec_1764225631551" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;"><div style="position: relative; width: 1454px; height: 598px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1817" height="747" style="position: absolute; left: 0px; top: 0px; width: 1454px; height: 598px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(1051px, 211px, 0px); border-color: rgb(84, 112, 198); pointer-events: none; visibility: hidden; opacity: 0;"><div class="font-bold">吉林</div>
+      <div id="map-container" class="w-full h-[400px] md:h-[600px] border border-gray-200 rounded-lg relative" _echarts_instance_="ec_1764228428390" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;"><div style="position: relative; width: 1454px; height: 598px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1817" height="747" style="position: absolute; left: 0px; top: 0px; width: 1454px; height: 598px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(1074px, 323px, 0px); border-color: rgb(84, 112, 198); pointer-events: none; visibility: hidden; opacity: 0;"><div class="font-bold">吉林</div>
                         <div class="text-gray-500">暂无招聘信息</div></div></div>
     </div>
   </main>
@@ -1018,16 +1022,64 @@
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
-      <div id="province-companies-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors relative" data-company-index="2">
+      <div id="province-companies-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="0">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
               <div>
                 <h5 class="font-semibold text-gray-800 text-sm md:text-base">集团总部</h5>
-                <p class="text-sm text-gray-600 mt-1">江苏省太仓市经济开发区北京东路88号集团大厦</p>
-                <p class="text-xs text-gray-500 mt-2">联系电话: 0512-53538888</p>
+                <p class="text-sm text-gray-600 mt-1">江苏省太仓市沙溪镇岳王新港中路239号</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0512-33006618</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">5 个岗位</span>
+                <p class="text-xs text-gray-500 mt-1">总部</p>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="1">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">苏州安佑</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省苏州市太仓市沙溪镇岳王新港中路239号1幢</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0512—33006701</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">3 个岗位</span>
+                <p class="text-xs text-gray-500 mt-1">预混料</p>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="3">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">江苏安佑</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省淮安市淮安区经济开发区山阳大道69号</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0512-33006618</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">5 个岗位</span>
+                <p class="text-xs text-gray-500 mt-1">华中</p>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="21">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">南通安佑</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省南通市如皋市如城街道如港路86号211室（经营场所：江苏省南通市如皋市如城街道中山西路609号</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0513-87989199</p>
               </div>
               <div class="text-left md:text-right mt-2 md:mt-0">
                 <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">1 个岗位</span>
-                <p class="text-xs text-gray-500 mt-1">总部</p>
+                <p class="text-xs text-gray-500 mt-1">华中</p>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-company-index="29">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">穗满德南通分公司</h5>
+                <p class="text-sm text-gray-600 mt-1">江苏省南通市开发区长圆路38号中侨大厦1103室</p>
+                <p class="text-xs text-gray-500 mt-2">联系电话: 0512-33006666</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-primary text-white text-xs px-2 py-1 rounded">1 个岗位</span>
+                <p class="text-xs text-gray-500 mt-1">华中</p>
               </div>
             </div>
           </div></div></div>
@@ -1048,12 +1100,56 @@
           <i class="fa fa-times text-xl"></i>
         </button>
       </div>
-      <div id="company-positions-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors relative" data-position-index="0">
+      <div id="company-positions-content" class="flex-1 overflow-y-auto p-4 md:p-6"><div class="space-y-4"><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="0">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
               <div>
-                <h5 class="font-semibold text-gray-800 text-sm md:text-base">战略规划经理</h5>
-                <p class="text-sm text-gray-600 mt-1">工作地点: 太仓市经济开发区</p>
-                <p class="text-sm text-warning mt-1">薪资: 25-40K/月 + 年终分红 + 股票期权</p>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">兽医博士</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 全国</p>
+                <p class="text-sm text-warning mt-1">薪资: 面议</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="1">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">猪料配方师（博士）</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 全国</p>
+                <p class="text-sm text-warning mt-1">薪资: 面议</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="2">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">产品经理</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 江苏省太仓市</p>
+                <p class="text-sm text-warning mt-1">薪资: 面议</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="3">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">法务专员</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 江苏省太仓市</p>
+                <p class="text-sm text-warning mt-1">薪资: 7000-10000/月</p>
+              </div>
+              <div class="text-left md:text-right mt-2 md:mt-0">
+                <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
+              </div>
+            </div>
+          </div><div class="bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors" data-position-index="4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
+              <div>
+                <h5 class="font-semibold text-gray-800 text-sm md:text-base">技术服务岗</h5>
+                <p class="text-sm text-gray-600 mt-1">工作地点: 江苏省太仓市</p>
+                <p class="text-sm text-warning mt-1">薪资: 5000-9000/月</p>
               </div>
               <div class="text-left md:text-right mt-2 md:mt-0">
                 <span class="inline-block bg-success text-white text-xs px-2 py-1 rounded">招聘中</span>
@@ -1075,7 +1171,7 @@
   <div id="position-detail-modal" class="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col modal-transition">
       <div class="p-3 md:p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
-        <h3 id="position-detail-title" class="text-base md:text-lg font-semibold text-gray-800">战略规划经理</h3>
+        <h3 id="position-detail-title" class="text-base md:text-lg font-semibold text-gray-800">兽医博士</h3>
         <button id="close-position-detail" class="text-gray-500 hover:text-gray-700 transition-colors">
           <i class="fa fa-times text-xl"></i>
         </button>
@@ -1092,15 +1188,15 @@
             </div>
             <div class="bg-white p-3 rounded-lg shadow-sm">
               <p class="text-xs text-gray-500 mb-1">工作地点</p>
-              <p class="font-medium text-gray-800 text-sm md:text-base">太仓市经济开发区</p>
+              <p class="font-medium text-gray-800 text-sm md:text-base">全国</p>
             </div>
             <div class="bg-white p-3 rounded-lg shadow-sm">
               <p class="text-xs text-gray-500 mb-1">薪资待遇</p>
-              <p class="font-medium text-warning text-sm md:text-base">25-40K/月 + 年终分红 + 股票期权</p>
+              <p class="font-medium text-warning text-sm md:text-base">面议</p>
             </div>
             <div class="bg-white p-3 rounded-lg shadow-sm">
               <p class="text-xs text-gray-500 mb-1">招聘热线</p>
-              <p class="font-medium text-gray-800 text-sm md:text-base">0512-53538888-801</p>
+              <p class="font-medium text-gray-800 text-sm md:text-base">18121567875（胡经理）</p>
             </div>
           </div>
         </div>
@@ -1113,12 +1209,42 @@
             
               <li class="flex items-start text-gray-700 text-sm md:text-base">
                 <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
-                <span>负责集团中长期战略规划制定和实施</span>
+                <span>参与制定事业部生产发展战略规划，防疫体系建设规划、年度经营计划</span>
               </li>
             
               <li class="flex items-start text-gray-700 text-sm md:text-base">
                 <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
-                <span>分析行业发展趋势和市场竞争格局</span>
+                <span>主持公司防疫工作结合各猪场猪群健康状况，制定防疫计划及方案</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>负责各猪场保健、免疫方案的制定</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>负责规范防疫工作各个环节及流程改进，快速提出重大疫情时的应急处理方案</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>负责对兽医技术团队的管理及人才管理培养</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>审核疫苗兽药采购计划，指导管理、规范药品的使用</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>熟悉猪场各种病死动物及产品、兽医器械物资的无害化处理方法</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check-circle text-success mr-2 mt-1 flex-shrink-0"></i>
+                <span>能初步判断猪场个体，群体发病，掌握典型临床症状及解剖病理变化‘进行初步诊断。</span>
               </li>
             
           </ul>
@@ -1132,12 +1258,27 @@
             
               <li class="flex items-start text-gray-700 text-sm md:text-base">
                 <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
-                <span>硕士及以上学历，工商管理、战略管理等相关专业</span>
+                <span>兽医专业背景，博士及以上学历</span>
               </li>
             
               <li class="flex items-start text-gray-700 text-sm md:text-base">
                 <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
-                <span>5年以上企业战略规划经验</span>
+                <span>精通猪相关流行性疾病学知识，具备丰富的临床诊疗经验</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
+                <span>具备良好的团队协作能力和沟通能力</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
+                <span>热爱畜牧养殖行业，能够接受农场工作环境</span>
+              </li>
+            
+              <li class="flex items-start text-gray-700 text-sm md:text-base">
+                <i class="fa fa-check text-primary mr-2 mt-1 flex-shrink-0"></i>
+                <span>能吃苦耐劳，下沉一线，深入现场。</span>
               </li>
             
           </ul>
@@ -1148,10 +1289,10 @@
             <i class="fa fa-paper-plane text-green-600 mr-2"></i>我要投递
           </h4>
           <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
-            <a href="tel:0512-53538888-801" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
+            <a href="tel:18121567875（胡经理）" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
               <i class="fa fa-phone mr-2"></i>电话咨询
             </a>
-            <a href="mailto:hr-headquarters@xxgroup.com" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
+            <a href="mailto:hrzhaopin@anschina.cn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center text-sm md:text-base shadow-md hover:shadow-lg">
               <i class="fa fa-envelope mr-2"></i>邮箱投递
             </a>
           </div>
@@ -1182,13 +1323,13 @@
     </div>
   </div>
 
-  <div id="error-modal" class="fixed inset-0 bg-black/50 z-[1000] hidden flex items-center justify-center p-2 md:p-4">
+  <div id="error-modal" class="fixed inset-0 bg-black/50 z-[1000] flex items-center justify-center p-2 md:p-4 hidden">
     <div class="bg-white rounded-xl w-full max-w-md p-4 md:p-6 text-center modal-transition">
       <div class="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-red-100 text-red-500 text-xl md:text-2xl mb-3 md:mb-4">
         <i class="fa fa-exclamation-triangle"></i>
       </div>
       <h3 class="text-base md:text-lg font-semibold text-gray-800 mb-2">操作失败</h3>
-      <p id="error-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">请检查文件格式是否正确</p>
+      <p id="error-message" class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">请先选择Excel文件</p>
       <button id="close-error-modal" class="px-4 md:px-6 py-2 bg-danger text-white rounded-lg hover:bg-danger/90 transition-colors text-sm md:text-base hidden">
         确定
       </button>
@@ -2886,6 +3027,7 @@
     let searchResults = []; // 存储搜索结果
     let successTimer = null;
     let errorTimer = null;
+    let isMobile = window.innerWidth < 768; // 检测是否为移动端
 
     // 页面加载完成后初始化
     document.addEventListener('DOMContentLoaded', function() {
@@ -2991,6 +3133,7 @@
         // 窗口大小变化时调整地图大小和字体
         window.addEventListener('resize', function() {
           myChart.resize();
+          isMobile = window.innerWidth < 768; // 更新移动端检测
           
           // 重新计算字体大小
           const containerWidth = document.getElementById('map-container').offsetWidth;
@@ -3530,7 +3673,7 @@
       modal.classList.remove('hidden');
     }
 
-    // 显示子公司列表
+    // 显示子公司列表 - 修复移动端点击问题
     function showCompanyList(provinceName) {
       currentProvince = provinceName;
       const provinceData = getProvinceData(provinceName);
@@ -3555,13 +3698,8 @@
         
         provinceData.companies.forEach(company => {
           const companyCard = document.createElement('div');
-          companyCard.className = 'bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors relative';
+          companyCard.className = 'bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors';
           companyCard.setAttribute('data-company-index', recruitData.indexOf(company));
-          
-          // 添加点击保护层
-          const clickProtection = document.createElement('div');
-          clickProtection.className = 'click-protection';
-          companyCard.appendChild(clickProtection);
           
           companyCard.innerHTML = `
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
@@ -3577,15 +3715,20 @@
             </div>
           `;
           
-          // 使用一次性事件监听器，防止重复绑定
-          const clickHandler = function() {
+          // 使用事件委托，通过检查事件目标来防止误触
+          companyCard.addEventListener('click', function(e) {
+            // 在移动端，检查是否是立即点击（弹窗刚显示时的点击）
+            if (isMobile) {
+              // 检查点击时间，如果是弹窗显示后立即点击，则忽略
+              const now = Date.now();
+              if (now - modal._showTime < 300) {
+                return;
+              }
+            }
+            
             modal.classList.add('hidden');
             showPositionList(company);
-            // 移除事件监听器，防止重复触发
-            companyCard.removeEventListener('click', clickHandler);
-          };
-          
-          companyCard.addEventListener('click', clickHandler);
+          });
           
           companiesList.appendChild(companyCard);
         });
@@ -3593,10 +3736,12 @@
         content.appendChild(companiesList);
       }
       
+      // 记录弹窗显示时间
+      modal._showTime = Date.now();
       modal.classList.remove('hidden');
     }
 
-    // 显示岗位列表
+    // 显示岗位列表 - 修复移动端点击问题
     function showPositionList(company) {
       currentCompany = company;
       
@@ -3620,13 +3765,8 @@
         
         company.positions.forEach((position, index) => {
           const positionCard = document.createElement('div');
-          positionCard.className = 'bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors relative';
+          positionCard.className = 'bg-white border border-gray-200 rounded-lg p-3 md:p-4 cursor-pointer hover:bg-gray-50 transition-colors';
           positionCard.setAttribute('data-position-index', index);
-          
-          // 添加点击保护层
-          const clickProtection = document.createElement('div');
-          clickProtection.className = 'click-protection';
-          positionCard.appendChild(clickProtection);
           
           positionCard.innerHTML = `
             <div class="flex flex-col md:flex-row justify-between items-start md:items-start">
@@ -3641,15 +3781,20 @@
             </div>
           `;
           
-          // 使用一次性事件监听器，防止重复绑定
-          const clickHandler = function() {
+          // 使用事件委托，通过检查事件目标来防止误触
+          positionCard.addEventListener('click', function(e) {
+            // 在移动端，检查是否是立即点击（弹窗刚显示时的点击）
+            if (isMobile) {
+              // 检查点击时间，如果是弹窗显示后立即点击，则忽略
+              const now = Date.now();
+              if (now - modal._showTime < 300) {
+                return;
+              }
+            }
+            
             modal.classList.add('hidden');
             showPositionDetail(position, company);
-            // 移除事件监听器，防止重复触发
-            positionCard.removeEventListener('click', clickHandler);
-          };
-          
-          positionCard.addEventListener('click', clickHandler);
+          });
           
           positionsList.appendChild(positionCard);
         });
@@ -3657,6 +3802,8 @@
         content.appendChild(positionsList);
       }
       
+      // 记录弹窗显示时间
+      modal._showTime = Date.now();
       modal.classList.remove('hidden');
     }
 
