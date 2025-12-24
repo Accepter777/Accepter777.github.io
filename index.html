@@ -242,7 +242,7 @@
       background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.90));
     }
 
-    /* 弹窗遮罩：增加毛玻璃，减少“黑屏”压迫感 */
+    /* 弹窗遮罩：增加毛玻璃，减少"黑屏"压迫感 */
     #login-modal, #admin-panel-modal, #company-modal-admin, #search-results-modal,
     #province-companies-modal, #company-positions-modal, #position-detail-modal,
     #success-modal, #error-modal, #upload-loading, #help-modal{
@@ -309,7 +309,7 @@
   
     /* PC端搜索结果：省份栏目宽度与公司栏目一致（避免一长一短） */
     @media (min-width: 768px){
-      /* 仅命中“省份匹配”那一块的两列网格容器 */
+      /* 仅命中"省份匹配"那一块的两列网格容器 */
       #search-results-content .grid.grid-cols-1.md\:grid-cols-2.gap-4{
         grid-template-columns: 1fr !important;
       }
@@ -320,7 +320,7 @@
     #mobile-gesture-hint.show { display: block !important; animation: fadeInUp .22s ease-out, hintFlash 2s linear; }
     #mobile-gesture-hint.hide { animation: fadeOut .18s ease-in forwards; }
 
-    /* 提示框视觉优化（更轻、更“胶囊”） */
+    /* 提示框视觉优化（更轻、更"胶囊"） */
     .gesture-pill{
       padding: .55rem .8rem;
       border-radius: 999px;
@@ -354,16 +354,76 @@
       100% { opacity: 1; }
     }
 
+    /* 新增：优化总部标记点样式 */
+    .headquarters-marker-container {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none; /* 避免影响地图交互 */
+      transition: transform 0.3s ease; /* 平滑移动 */
+      transform: translate(-50%, -50%); /* 居中定位 */
+    }
+    
+    .headquarters-marker-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #e53e3e;
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.3),
+                  0 2px 6px rgba(0, 0, 0, 0.2);
+      animation: markerPulse 2s infinite;
+      cursor: pointer;
+      pointer-events: auto; /* 允许点击 */
+    }
+    
+    .headquarters-marker-label {
+      background-color: rgba(229, 62, 62, 0.95);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-top: 2px;
+      white-space: nowrap;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      pointer-events: auto; /* 允许点击 */
+    }
+    
+    @keyframes markerPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.4),
+                    0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+      70% {
+        box-shadow: 0 0 0 6px rgba(229, 62, 62, 0),
+                    0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(229, 62, 62, 0),
+                    0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+    }
+    
+    /* 移动端更小的标记 */
+    @media (max-width: 768px) {
+      .headquarters-marker-dot {
+        width: 10px;
+        height: 10px;
+      }
+      .headquarters-marker-label {
+        font-size: 9px;
+        padding: 1px 5px;
+      }
+    }
+
 </style>
 
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-top-16{top:-4rem}.left-1\/2{left:50%}.left-3{left:0.75rem}.top-0{top:0px}.top-3{top:0.75rem}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.z-\[1000\]{z-index:1000}.z-\[999\]{z-index:999}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-2{height:0.5rem}.h-\[400px\]{height:400px}.h-3{height:0.75rem}.max-h-\[80vh\]{max-height:80vh}.max-h-\[90vh\]{max-height:90vh}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-full{width:100%}.w-3{width:0.75rem}.min-w-full{min-width:100%}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-gray-200 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(229 231 235 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-dashed{border-style:dashed}.border-admin{--tw-border-opacity:1;border-color:rgb(79 70 229 / var(--tw-border-opacity, 1))}.border-admin\/30{border-color:rgb(79 70 229 / 0.3)}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-green-200{--tw-border-opacity:1;border-color:rgb(187 247 208 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-admin{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-admin\/10{background-color:rgb(79 70 229 / 0.1)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-danger{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(66 153 225 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-success{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-warning{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-headquarters{--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1))}.bg-north{--tw-bg-opacity:1;background-color:rgb(159 122 234 / var(--tw-bg-opacity, 1))}.bg-south{--tw-bg-opacity:1;background-color:rgb(56 178 172 / var(--tw-bg-opacity, 1))}.bg-additive{--tw-bg-opacity:1;background-color:rgb(237 137 54 / var(--tw-bg-opacity, 1))}.bg-central{--tw-bg-opacity:1;background-color:rgb(66 153 225 / var(--tw-bg-opacity, 1))}.bg-premix{--tw-bg-opacity:1;background-color:rgb(140 97 60 / var(--tw-bg-opacity, 1))}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pl-10{padding-left:2.5rem}.pr-4{padding-right:1rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-admin{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-green-800{--tw-text-opacity:1;color:rgb(22 101 52 / var(--tw-text-opacity, 1))}.text-headquarters{--tw-text-opacity:1;color:rgb(229 62 62 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(66 153 225 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-success{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-\[width\]{transition-property:width;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-75{transition-duration:75ms}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}.modal-transition{animation:fadeIn 0.3s ease-in-out}.headquarters-dot{position:relative;height:1.25rem;width:1.25rem}@keyframes pulse{50%{opacity:.5}0%, 100%{transform:scale(1);opacity:1}75%, 100%{transform:scale(1.5);opacity:0}}.headquarters-dot{animation:pulse 2s infinite;cursor:pointer;border-radius:9999px;border-width:2px;--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1));--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.headquarters-dot::after {
-        content: '';
-        position:absolute;
-        inset:0px;
-        border-radius:9999px;
-        background-color:rgb(229 62 62 / 0.3);
-        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-      }.headquarters-tooltip{border-radius:0.375rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));padding:0.75rem;font-size:0.875rem;line-height:1.25rem;font-weight:500;--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.headquarters-label{position:absolute;bottom:-2rem;left:50%;--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));white-space:nowrap;border-radius:0.25rem;--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1));padding-top:0.25rem;padding-bottom:0.25rem;padding-left:0.5rem;padding-right:0.5rem;font-size:0.75rem;line-height:1rem;--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1));--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}@keyframes ping {
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.left-1\/2{left:50%}.left-3{left:0.75rem}.top-0{top:0px}.top-3{top:0.75rem}.z-0{z-index:0}.z-20{z-index:20}.z-50{z-index:50}.z-\[1000\]{z-index:1000}.z-\[999\]{z-index:999}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-2{height:0.5rem}.h-\[400px\]{height:400px}.h-3{height:0.75rem}.max-h-\[80vh\]{max-height:80vh}.max-h-\[90vh\]{max-height:90vh}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-full{width:100%}.w-3{width:0.75rem}.min-w-full{min-width:100%}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-gray-200 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(229 231 235 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-dashed{border-style:dashed}.border-admin{--tw-border-opacity:1;border-color:rgb(79 70 229 / var(--tw-border-opacity, 1))}.border-admin\/30{border-color:rgb(79 70 229 / 0.3)}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-green-200{--tw-border-opacity:1;border-color:rgb(187 247 208 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-admin{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-admin\/10{background-color:rgb(79 70 229 / 0.1)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-danger{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(66 153 225 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-success{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-warning{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-headquarters{--tw-bg-opacity:1;background-color:rgb(229 62 62 / var(--tw-bg-opacity, 1))}.bg-north{--tw-bg-opacity:1;background-color:rgb(159 122 234 / var(--tw-bg-opacity, 1))}.bg-south{--tw-bg-opacity:1;background-color:rgb(56 178 172 / var(--tw-bg-opacity, 1))}.bg-additive{--tw-bg-opacity:1;background-color:rgb(237 137 54 / var(--tw-bg-opacity, 1))}.bg-central{--tw-bg-opacity:1;background-color:rgb(66 153 225 / var(--tw-bg-opacity, 1))}.bg-premix{--tw-bg-opacity:1;background-color:rgb(140 97 60 / var(--tw-bg-opacity, 1))}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pl-10{padding-left:2.5rem}.pr-4{padding-right:1rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-admin{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-green-800{--tw-text-opacity:1;color:rgb(22 101 52 / var(--tw-text-opacity, 1))}.text-headquarters{--tw-text-opacity:1;color:rgb(229 62 62 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(66 153 225 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-success{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-\[width\]{transition-property:width;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-75{transition-duration:75ms}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}.modal-transition{animation:fadeIn 0.3s ease-in-out}@keyframes ping {
         0% {
           transform: scale(1);
           opacity: 1;
@@ -530,15 +590,15 @@
     <div class="bg-gray-50 border-t border-gray-200 py-3">
       <div class="container mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-sm">
         <div class="flex items-center gap-6 mb-2 md:mb-0">
-          <span><i class="fa fa-building-o text-primary mr-1"></i> 在招公司数: <span id="company-count" class="font-bold">30</span></span>
-          <span><i class="fa fa-briefcase text-success mr-1"></i> 招聘岗位数: <span id="position-count" class="font-bold">69</span></span>
+          <span><i class="fa fa-building-o text-primary mr-1"></i> 在招公司数: <span id="company-count" class="font-bold">31</span></span>
+          <span><i class="fa fa-briefcase text-success mr-1"></i> 招聘岗位数: <span id="position-count" class="font-bold">71</span></span>
         </div>
         <div class="flex items-center gap-4 flex-wrap" id="region-counts"><span class="flex items-center">
             <span class="w-3 h-3 rounded-full bg-north mr-1"></span>
             华北: <span class="font-bold">14</span>
           </span><span class="flex items-center">
             <span class="w-3 h-3 rounded-full bg-south mr-1"></span>
-            华南: <span class="font-bold">18</span>
+            华南: <span class="font-bold">21</span>
           </span><span class="flex items-center">
             <span class="w-3 h-3 rounded-full bg-central mr-1"></span>
             华中: <span class="font-bold">22</span>
@@ -550,7 +610,7 @@
             预混料: <span class="font-bold">3</span>
           </span><span class="flex items-center">
             <span class="w-3 h-3 rounded-full bg-headquarters mr-1"></span>
-            总部: <span class="font-bold">8</span>
+            总部: <span class="font-bold">7</span>
           </span></div>
       </div>
     </div>
@@ -563,7 +623,7 @@
       <div id="map-container" class="w-full h-[400px] md:h-[600px] border border-gray-200 rounded-lg relative">
 
         <!-- ECharts渲染层：避免覆盖/清空提示与标记（移动端手势提示闪烁问题修复） -->
-        <div id="map-chart" class="absolute inset-0 z-0" _echarts_instance_="ec_1765860946201" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><div style="position: relative; width: 1454px; height: 598px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1817" height="747" style="position: absolute; left: 0px; top: 0px; width: 1454px; height: 598px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(1022px, 88px, 0px); border-color: rgb(84, 112, 198); pointer-events: none; visibility: hidden; opacity: 0;"><div class="font-bold">黑龙江</div>
+        <div id="map-chart" class="absolute inset-0 z-0" _echarts_instance_="ec_1766552265234" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><div style="position: relative; width: 1454px; height: 598px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1817" height="747" style="position: absolute; left: 0px; top: 0px; width: 1454px; height: 598px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(983px, 148px, 0px); border-color: rgb(84, 112, 198); pointer-events: none; visibility: hidden; opacity: 0;"><div class="font-bold">黑龙江</div>
                         <div class="text-gray-500">暂无招聘信息</div></div></div>
 
 
@@ -574,17 +634,11 @@
             <span class="gesture-text">单指拖动 · 双指缩放</span>
           </div>
         </div>
-        <!-- 总部标记点将通过JS动态添加 -->
-        <div id="headquarters-marker" class="absolute hidden z-10" style="left: 50%; top: 50%;">
-          <div class="headquarters-dot" title="集团总部（江苏太仓）">
-            <i class="fa fa-building text-white text-xs absolute inset-0 flex items-center justify-center"></i>
-          </div>
-          <div class="headquarters-label">集团总部</div>
-          <div class="headquarters-tooltip hidden absolute -top-16 left-1/2 transform -translate-x-1/2">
-            <div class="font-bold text-headquarters">集团总部</div>
-            <div class="text-xs text-gray-500">江苏太仓</div>
-            <div class="text-xs text-gray-400 mt-1">点击查看招聘岗位</div>
-          </div>
+        
+        <!-- 总部标记点容器 -->
+        <div id="headquarters-marker" class="headquarters-marker-container hidden" style="left: 882.571px; top: 400.541px; transform: translate(-50%, -50%) scale(0.8);">
+          <div class="headquarters-marker-dot" title="集团总部（江苏太仓）"></div>
+          <div class="headquarters-marker-label">总部</div>
         </div>
       </div>
     </div>
@@ -1047,9 +1101,9 @@
             </div>
           </td>
         </tr><tr>
-          <td class="text-xs md:text-sm">总部</td>
-          <td class="text-xs md:text-sm">江西</td>
-          <td class="text-xs md:text-sm">安佑技术宁都分公司</td>
+          <td class="text-xs md:text-sm">华南</td>
+          <td class="text-xs md:text-sm">海南</td>
+          <td class="text-xs md:text-sm">安佑技术万宁分公司</td>
           <td class="text-xs md:text-sm">1</td>
           <td>
             <div class="flex gap-2">
@@ -1151,6 +1205,21 @@
               </button>
             </div>
           </td>
+        </tr><tr>
+          <td class="text-xs md:text-sm">华南</td>
+          <td class="text-xs md:text-sm">云南</td>
+          <td class="text-xs md:text-sm">玉溪安佑</td>
+          <td class="text-xs md:text-sm">2</td>
+          <td>
+            <div class="flex gap-2">
+              <button class="edit-company-btn btn-warning text-xs" data-index="30">
+                <i class="fa fa-edit mr-1"></i>编辑
+              </button>
+              <button class="delete-company-btn btn-danger text-xs" data-index="30">
+                <i class="fa fa-trash mr-1"></i>删除
+              </button>
+            </div>
+          </td>
         </tr></tbody>
                 </table>
               </div>
@@ -1161,7 +1230,7 @@
       
       <div class="p-3 md:p-4 border-t border-gray-200 bg-gray-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
         <div class="text-xs md:text-sm text-gray-600">
-          当前数据：<span id="admin-data-count">30</span> 家公司，<span id="admin-position-count">69</span> 个岗位
+          当前数据：<span id="admin-data-count">31</span> 家公司，<span id="admin-position-count">71</span> 个岗位
         </div>
         <button id="logout-btn" class="px-3 md:px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors text-xs md:text-sm">
           <i class="fa fa-sign-out mr-1"></i>退出登录
@@ -1338,10 +1407,10 @@
       <p id="success-message" class="text-gray-600 mb-2 text-sm md:text-base">Excel文件已成功上传并更新数据</p>
       <div class="mt-4 mb-4 md:mb-6">
         <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-          <div id="success-progress" class="h-2 bg-success rounded-full transition-[width] duration-75" style="width: 67.77%;"></div>
+          <div id="success-progress" class="h-2 bg-success rounded-full transition-[width] duration-75" style="width: 69.46%;"></div>
         </div>
         <div class="mt-2 text-xs text-gray-500">
-          <span id="success-countdown">2.0</span>s 后自动关闭
+          <span id="success-countdown">2.1</span>s 后自动关闭
         </div>
       </div>
 
@@ -2913,17 +2982,17 @@
     ]
   },
   {
-    "region": "总部",
-    "province": "江西",
-    "company": "安佑技术宁都分公司",
-    "address": "赣江源大道江苏省赣州市宁都县赣江源大道59号",
-    "contact": 18379798718,
+    "region": "华南",
+    "province": "海南",
+    "company": "安佑技术万宁分公司",
+    "address": "海南省万宁市三更罗镇新中居工程队80号",
+    "contact": 17760766888,
     "email": "hrzhaopin@anschina.cn",
     "positions": [
       {
         "name": "化验员",
-        "workLocation": "江西省赣州市",
-        "hotline": "18379798718（雷美德）",
+        "workLocation": "海南省文昌市",
+        "hotline": "17760766888（马经理）",
         "salary": "4000-5500元/月",
         "responsibilities": [
           "负责动保产品的销售及售后技术对接工作",
@@ -3127,6 +3196,56 @@
         ]
       }
     ]
+  },
+  {
+    "region": "华南",
+    "province": "云南",
+    "company": "玉溪安佑",
+    "address": "云南省玉溪市红塔区研和工业园区滇中(玉溪)粮食物流产业园",
+    "contact": 18190845677,
+    "email": "yuxi-hr@anschina.cn",
+    "positions": [
+      {
+        "name": "销售业务员（猪料）",
+        "workLocation": "云南省玉溪市",
+        "hotline": "15912514729（苏经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责产品的市场渠道开拓与销售工作，执行并完成公司产品年度销售计划",
+          "根据公司市场营销战略，积极完成销量指标，扩大产品市场占有率",
+          "与客户保持良好沟通，实时把握客户需求，管理维护客户关系，定期拜访客户，及时了解行业变化，收集并反馈客户信息",
+          "与客户洽谈并初拟合同，或与合作公司代表签订经销协议",
+          "收集产品使用反馈信息，实证数据等",
+          "帮助客户协调所需服务支持，协助处理客户投诉等",
+          "参与和配合公司开展相关行业展会"
+        ],
+        "requirements": [
+          "专科以上学历，畜牧兽医、动物医学、动物科学相关专业，有行业经验优先",
+          "认同企业文化、热爱营销，有激情，吃苦耐劳，执行力强",
+          "有良好的人际沟通能力和自律性"
+        ]
+      },
+      {
+        "name": "成品仓管",
+        "workLocation": "云南省玉溪市",
+        "hotline": "15912514729（苏经理）",
+        "salary": "面议",
+        "responsibilities": [
+          "负责生产成品的核对与入库管理，确保数量准确、信息无误",
+          "指挥叉车司机按种类规范码放成品，保持仓库整齐有序",
+          "执行出库管理工作，根据出货单品种和数量安排装卸作业，确保发货准确、高效",
+          "每日进行库存盘点，核对系统数据与实际库存，及时上报异常情况",
+          "协助财务部门完成月度成品盘点工作",
+          "负责责任区域的清洁卫生及设备维护，达到6S管理标准",
+          "按照生产需求操作SAP系统，确保数据录入及时、准确"
+        ],
+        "requirements": [
+          "中专及以上学历，专业不限",
+          "具备良好的责任心和沟通协调能力",
+          "能适应工厂环境，服从工作安排，具备基本的电脑操作能力"
+        ]
+      }
+    ]
   }
 ];
 
@@ -3141,6 +3260,11 @@
     let successTimer = null;
     let errorTimer = null;
     let isMobileDevice = false; // 新增：移动设备检测
+    let headquartersMarker = null; // 总部标记点元素
+    let headquartersMarkerVisible = false; // 标记点是否可见
+    let lastZoomLevel = 1; // 记录上一次的缩放级别
+    let resizeTimer = null; // 窗口大小变化防抖定时器
+    let mapInitialized = false; // 新增：标记地图是否已初始化
 
     // 页面加载完成后初始化
     document.addEventListener('DOMContentLoaded', function() {
@@ -3185,7 +3309,9 @@
     async function init() {
       await initMap();
       updateStatistics();
-      showHeadquartersMarker();
+      // 获取总部标记点元素
+      headquartersMarker = document.getElementById('headquarters-marker');
+      // 初始不调用updateHeadquartersMarker，等待地图渲染完成
     }
 
     // 初始化地图 - 修改为使用本地地图数据
@@ -3229,9 +3355,10 @@
               map: 'china',  // 使用本地注册的地图名称
               roam: true,
               scaleLimit: {
-                min: 1.2,
+                min: 1,
                 max: 10
               },
+              zoom: 1, // 明确设置初始缩放级别为1
               label: {
                 show: true,
                 fontSize: baseFontSize,
@@ -3276,30 +3403,52 @@
           showCompanyList(params.name);
         });
         
+        // 监听地图的移动和缩放事件 - 修复事件监听
+        myChart.on('georoam', function(params) {
+          updateHeadquartersMarker();
+        });
+        
+        // 监听地图渲染完成事件，确保初始位置正确
+        myChart.on('rendered', function() {
+          // 首次渲染后标记地图已初始化
+          if (!mapInitialized) {
+            mapInitialized = true;
+          }
+          updateHeadquartersMarker();
+        });
+        
         // 窗口大小变化时调整地图大小和字体
         window.addEventListener('resize', function() {
-          myChart.resize();
-          
-          // 重新计算字体大小
-          const containerWidth = document.getElementById('map-container').offsetWidth;
-          const newFontSize = containerWidth < 768 ? 8 : 10;
-          
-          // 更新地图选项中的字体大小
-          myChart.setOption({
-            series: [{
-              label: {
-                fontSize: newFontSize,
-                emphasis: {
-                  fontSize: newFontSize + 1
+          // 防抖处理
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            myChart.resize();
+            
+            // 重新计算字体大小
+            const containerWidth = document.getElementById('map-container').offsetWidth;
+            const newFontSize = containerWidth < 768 ? 8 : 10;
+            
+            // 更新地图选项中的字体大小
+            myChart.setOption({
+              series: [{
+                label: {
+                  fontSize: newFontSize,
+                  emphasis: {
+                    fontSize: newFontSize + 1
+                  }
                 }
-              }
-            }]
-          });
-          
-          if (document.getElementById('headquarters-marker') && !document.getElementById('headquarters-marker').classList.contains('hidden')) {
-            positionHeadquartersMarker();
-          }
+              }]
+            });
+            
+            // 重新定位总部标记点
+            updateHeadquartersMarker();
+          }, 250);
         });
+        
+        // 初始渲染完成后立即更新一次标记点，确保初始状态正确
+        setTimeout(() => {
+          updateHeadquartersMarker();
+        }, 100);
         
       } catch (error) {
         console.error('地图初始化失败:', error);
@@ -3316,6 +3465,81 @@
             </div>
           </div>
         `;
+      }
+    }
+
+    // 更新总部标记点位置 - 修复初始显示问题
+    function updateHeadquartersMarker() {
+      if (!myChart || !headquartersMarker) return;
+      
+      try {
+        // 获取地图当前状态
+        const chartInstance = myChart;
+        
+        // 获取地图的缩放级别
+        let zoom = 1;
+        // 尝试从地图实例获取当前缩放级别
+        const option = chartInstance.getOption();
+        if (option && option.series && option.series[0]) {
+          const seriesOption = option.series[0];
+          if (seriesOption.zoom !== undefined) {
+            zoom = seriesOption.zoom;
+          }
+        }
+        
+        // 根据设备类型和缩放级别决定是否显示标记点
+        // PC端：缩放级别 >= 2 时显示，移动端：缩放级别 >= 2.5 时显示
+        const shouldShow = isMobileDevice ? zoom >= 2.5 : zoom >= 2;
+        
+        // 记录当前缩放级别
+        lastZoomLevel = zoom;
+        
+        if (shouldShow) {
+          // 显示标记点
+          if (!headquartersMarkerVisible) {
+            headquartersMarker.classList.remove('hidden');
+            headquartersMarkerVisible = true;
+          }
+          
+          // 江苏太仓的准确坐标（经度，纬度）
+          const headquartersCoord = [121.1, 31.45];
+          
+          // 将地理坐标转换为屏幕像素坐标
+          const pixel = chartInstance.convertToPixel({ seriesIndex: 0 }, headquartersCoord);
+          
+          if (pixel && pixel.length >= 2 && !isNaN(pixel[0]) && !isNaN(pixel[1])) {
+            // 设置标记点位置
+            headquartersMarker.style.left = `${pixel[0]}px`;
+            headquartersMarker.style.top = `${pixel[1]}px`;
+            
+            // 根据缩放级别调整标记点大小
+            const scale = isMobileDevice ? 
+              Math.min(1.2, (zoom - 1.5) / 2) : 
+              Math.min(1.2, (zoom - 1) / 3);
+            
+            const finalScale = Math.max(scale, 0.8);
+            headquartersMarker.style.transform = `translate(-50%, -50%) scale(${finalScale})`;
+          } else {
+            // 如果坐标转换失败，暂时隐藏标记点
+            if (headquartersMarkerVisible) {
+              headquartersMarker.classList.add('hidden');
+              headquartersMarkerVisible = false;
+            }
+          }
+        } else {
+          // 隐藏标记点
+          if (headquartersMarkerVisible) {
+            headquartersMarker.classList.add('hidden');
+            headquartersMarkerVisible = false;
+          }
+        }
+      } catch (error) {
+        console.error('更新总部标记点时出错:', error);
+        // 出错时隐藏标记点
+        if (headquartersMarkerVisible) {
+          headquartersMarker.classList.add('hidden');
+          headquartersMarkerVisible = false;
+        }
       }
     }
 
@@ -3492,6 +3716,17 @@
       document.getElementById('close-help-modal-btn').addEventListener('click', function() {
         document.getElementById('help-modal').classList.add('hidden');
       });
+      
+      // 总部标记点点击事件
+      if (headquartersMarker) {
+        headquartersMarker.addEventListener('click', function() {
+          // 查找总部公司数据
+          const headquartersCompany = recruitData.find(item => item.region === '总部');
+          if (headquartersCompany) {
+            showPositionList(headquartersCompany);
+          }
+        });
+      }
     }
 
     // 显示管理员面板
@@ -3686,6 +3921,9 @@
           }]
         });
       }
+      
+      // 更新总部标记点
+      updateHeadquartersMarker();
     }
 
     // 搜索功能 - 优化省份搜索去重
@@ -4225,6 +4463,9 @@
             }]
           });
         }
+        
+        // 更新总部标记点
+        updateHeadquartersMarker();
       }
     }
 
@@ -4244,12 +4485,6 @@
       });
       
       return mapData;
-    }
-
-    // 显示总部标记点
-    function showHeadquartersMarker() {
-      // 这里应该有显示总部标记的代码
-      console.log('显示总部标记');
     }
 
     // 更新统计数据
@@ -4438,6 +4673,9 @@
               }]
             });
           }
+          
+          // 更新总部标记点
+          updateHeadquartersMarker();
           
           document.getElementById('upload-loading').classList.add('hidden');
           showSuccess('Excel文件已成功上传并更新数据');
